@@ -1,12 +1,20 @@
 "About Inform 7" by "Bart Massey"
 
+After reading a command when the player's command matches the regular expression "^\p|^\*" (this is the ignore beta-comments rule): say "(noted)"; reject the player's command.
+
+To say debug: (- #ifdef DEBUG; -). To say end debug: (- #endif; -).
+
+Use American dialect.
+
+Rule for deciding whether all includes scenery: it does not.
+
 The story headline is "A Metareflective Talk Environment".
 
 When play begins, say "Copyright (c) 2012 Bart Massey[line break]This text 'adventure' is both the 'slides' for my talk and a demo app. The demo app, a Nim player, is based on a graphical Nim player I wrote for the 128K Macintosh around 1982. It plays perfectly, but only plays as second player, so it is beatable."
 
 The maximum score is 1.
 
-There is a room called The Briefing Room. "This wood-paneled study is adequately if indirectly lit by wall-mounted lamps along the walls. In the center of the room is a table, and on the table are several books. An open doorframe leads west."
+There is a room called The Briefing Room. "This wood-paneled study is adequately if indirectly lit by wall-mounted lamps along the walls. In the center of the room is a table, and on the table are several books. Open doorframes lead west and south. A restroom door lies to the east."
 
 The briefing table is scenery in The Briefing Room. "This sturdy polished table of light mahogany has plenty of space to spread out."
 
@@ -214,6 +222,8 @@ To say clarification turning to page (the target page - a number) of (the book t
 
 Volume - The Talk
 
+Chapter - The Briefing Books
+
 Section - The Useless Manual
 
 The useless manual is a book on the briefing table. "A patently useless manual lies here." The indefinite article is "a". The title is "Useless Manaul" [sic]. The manuscript is the Table of Useless Manual Pages.
@@ -325,3 +335,70 @@ Chapter - Testing - Not for release
 Test winning with "take 1 stone from pit 1 / take 1 stone from pit 2 / take 1 stone from pit 1 / take 1 stone from pit 1 / take 1 stone from pit 3 / take 1 stone from pit 3 / take 1 stone from pit 3 / take 1 stone from pit 3".
 
 Test losing with "take 3 stones from pit 1 / take 4 stones from pit 3 / take 1 stone from pit 2"
+
+Volume - Demo Lab
+
+Chapter 1 - The Game
+
+The Demo Lab is a region. The Demo Room and the Airlock are in the Demo Lab.
+
+Some walls are a backdrop which is in the Demo Lab. Some metal sheets are a backdrop which is in the Demo Lab.
+
+The metal ladder is a backdrop which is in the Demo Lab. The description is "It looks worn but sturdy." Instead of climbing: try going up. Understand "climb [ladder]" as climbing.  Understand "climb up [ladder]" as climbing. [still needs work]
+
+A room has a room called the xyzzy-room. The xyzzy-room of a room is usually nowhere.
+
+Xyzzying is an action applying to nothing. Carry out xyzzying when the xyzzy-room of the location of the player is not nothing: say "*Poof*!"; now the player is in the xyzzy-room of the location of the player; rule succeeds. Carry out xyzzying:  say "Wha?"; rule fails. Understand "xyzzy" as xyzzying.
+
+Section 1 - The Demo Room
+
+The Demo Room is south of The Briefing Room. "Around you stretch the riveted sheets of bare metal that form the walls of the Demo Room. At the center of the room, a narrow metal ladder leads upward through a hatch in the ceiling, currently [lower hatch position]. An open doorframe leads north." The xyzzy-room of the Demo Room is the Airlock.
+
+The sign is an object in the Demo Room. "A flimsy plastic sign is affixed to one wall." The description is "The sign reads 'Up and Out!'" It is fixed in place.
+
+The cardboard box is an unopenable open container in the Demo Room. "A nondescript cardboard box sits in the corner. The sides sag out." Before taking the box: try apprehending the zorkmid. Carry out looking under the box: say "You see what looks like the underside of a cardboard box."; try apprehending the zorkmid. Instead of pushing the box when the box is not carried: say "You give the box a shove."; try apprehending the zorkmid. 
+
+The zorkmid coin is an object. The description is "This zorkmid coin is made of the usual lead-gold alloy (heavy on the lead)." After examining the zorkmid for the first time: say "You muse on the distant land from which this coin must have originated." Apprehending the zorkmid is an action applying to nothing. Carry out apprehending the zorkmid for the first time: now the zorkmid is in the Demo Room; try silently taking the zorkmid; say "You find a zorkmid coin under the box (taken)."
+
+Section 2 - The Airlock
+
+The Airlock is a room. It is below the upper hatch and above the lower hatch. "You hang from a metal ladder in a circular metal shaft. The room is bathed in the reddish light of emergency lamps. There are vents in the wall of the shaft near the top and the bottom. A lower hatch,  [lower hatch position] below you, leads to the Demo Room; an upper hatch, [upper hatch position] above, leads...who knows?" Some reddish lamps are scenery in the Airlock. The description is "These incandescent lamps, obscured by metal gratings, emit an orange-red glow."  Understand "lights", "light" and "lamp" as the lamps.  Some vents are scenery in the Airlock. The description is "The vents are covered with dinged and pitted metal grating. Behind them is an ominous darkness." Understand "vent" as the vents. The xyzzy-room of the Airlock is the Demo Room.
+
+A hatchway is a kind of door which is openable and lockable. It is usually closed. It is scenery. To say (H - a hatchway) position: if H is open, say "open"; otherwise say "closed".
+
+The upper hatch is a locked hatchway. It is above the Airlock and below the Real World. The description is "This [upper hatch position] hatch leads from the Airlock into the mysterious unknown."
+
+The lower hatch is an unlocked hatchway. It is below the Airlock and above the Demo Room. The description is "This [lower hatch position] hatch connects the Airlock and the Demo Room."
+
+Section 3 - The Hatch Wheel System
+
+The hatch wheel is in the Airlock. "A small metal wheel protrudes from a shaft halfway up the wall opposite you." It is fixed in place. The wheel can be either pointing upward or pointing downward. It is pointing downward. The description is "This is a rough metal wheel with four spokes affixed to the wall. It looks like some kind of control. There is a red mark painted on the wheel, currently at [mark placement]."  To say mark placement: if the wheel is pointing upward, say "the top of the wheel"; otherwise say "the bottom of the wheel".
+
+To decide whether the wheel is active: if the lower hatch is closed and the upper hatch is closed and the slot is loaded, decide yes; otherwise decide no. To decide whether the wheel is inactive: if the wheel is active, decide no; otherwise decide yes. Before turning the wheel, ignore the can't turn what's fixed in place rule. Instead of turning the wheel when the wheel is inactive: say "The wheel wiggles, but refuses to move.". After turning the wheel, say "The wheel turns creakily through a half revolution. Dry, sterile-smelling air pours from the upper vents and flows out the lower vents for a moment, then stops. Eerie quiet resumes." Carry out turning the wheel when the wheel is active and the wheel is pointing downward: now the lower hatch is locked; now the upper hatch is unlocked; now the wheel is pointing upward; rule succeeds. Carry out turning the wheel when the wheel is active and the wheel is pointing upward: now the lower hatch is unlocked; now the upper hatch is locked; now the wheel is pointing downward; rule succeeds.
+
+The slot is in the Airlock. "Next to the wheel is a small slot." The description is "The slot is entirely nondescript. It is vertical: about the height and width of a silver dollar." It is fixed in place. The slot can be either loaded or unloaded. It is unloaded. Loading it into is an action applying to two touchable objects. Carry out loading the zorkmid into the slot: say "The zorkmid vanishes into the slot with a metallic clink."; remove the zorkmid from play; now the slot is loaded; rule succeeds. Carry out loading an object into the slot: say "You look more closely at the [noun] and at the slot and change your mind." Understand "put [thing] in/into [slot]" as loading it into. Understand "drop [thing] in/into [slot]",  "insert [thing] in/into [slot]" and "load [thing] in/into [slot]" as loading it into.
+
+Section 4 - Ending the Game
+
+After going through the upper hatch: say "You climb out of the Demo Lab and into the Briefing Room. All that work for nothing!"; increment the score; now the player is in The Briefing Room.
+
+Chapter 2 - Testing and Debugging - Not for release
+
+Going unto is an action applying to one thing. Carry out going unto a room (called R) (this is the going unto a room rule): move the player to R. Before going unto a thing: ignore the basic accessibility rule. Carry out going unto a thing (called T) (this is the going unto a thing rule): move the player to the location of T. Understand "go unto [any room]" as going unto. Understand "go unto [any thing]" as going unto. Test go-unto with "go unto Real World / go unto wheel / go unto nonexistent / go unto Demo Room".
+
+Test me with "test sign / test zorkmid / up / test airlock / test wheel".
+
+Test sign with "take sign / read sign".
+
+Test zorkmid with "look in box / look under box / i".
+
+Test airlock with "up / close lower / down / close hatch / up".
+
+Test wheel with "close lower / turn wheel / put zorkmid in / turn wheel / down / up".
+
+
+Chapter - The Restroom
+
+The Restroom Door is a door. The Restroom Door is east of The Briefing Room and west of the Genderless Restroom. "The restroom door bears the universal indication of both genders."
+
+The Genderless Restroom is a room. "It's a restroom. You've seen them before. Do you really need a detailed model of all the fixtures? If you [italic type]must[roman type] flush the imaginary toilet, imagine doing so now, and supply your own vision of the result. Go ahead, I'll wait.[paragraph break]The door is to the west."
