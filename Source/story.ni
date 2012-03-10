@@ -1,5 +1,11 @@
 "About Inform 7" by "Bart Massey"
 
+[Released under the Creative Commons Attribution 3.0 United States (CC BY 3.0) license. See http://creativecommons.org/licenses/by/3.0/us/ for license details.]
+
+Volume - Setup
+
+Release along with cover art, the source text and the library card.
+
 After reading a command when the player's command matches the regular expression "^\p|^\*" (this is the ignore beta-comments rule): say "(noted)"; reject the player's command.
 
 To say debug: (- #ifdef DEBUG; -). To say end debug: (- #endif; -).
@@ -10,13 +16,21 @@ Rule for deciding whether all includes scenery: it does not.
 
 The story headline is "A Metareflective Talk Environment".
 
-When play begins, say "Copyright (c) 2012 Bart Massey[line break]This text 'adventure' is both the 'slides' for my talk and a demo app. The demo app, a Nim player, is based on a graphical Nim player I wrote for the 128K Macintosh around 1982. It plays perfectly, but only plays as second player, so it is beatable."
+Book - Out Of World
 
-The maximum score is 1.
+Helping is an action out of world. Carry out helping: say "For this help, say 'help'. For basic information, say 'version'. For acknowledgments, say 'acks'. For other help, I'm afraid you're out of luck." Understand "help" as helping.
+
+Acknowledging is an action out of world. Carry out acknowledging: say "Sources for this work include the Inform 7 documentation, [italic type]Inform 7 for Programmers,[roman type] the [italic type]Inform 7 Handbook,[roman type] Aaron Reed's book [italic type]Creating Interactive Fiction with Inform 7[roman type] and a whole bunch of other stuff scattered around the web.[paragraph break]My brother, Byron Massey (20 September 1967 – 11 October 2010), was the great player of games in our family, and I wish I could show him what I'm doing. I think he might think it was cool." Understand "acknowledgements" or "acknowledgments" or "acks" as acknowledging.
+
+When play begins, say "Copyright (c) 2012 Bart Massey[paragraph break]This text 'adventure' is both the 'slides' for my talk and a couple of demo apps. One demo app, a Nim player, is based on a graphical Nim player I wrote for the 128K Macintosh around 1982. It plays perfectly, but only plays as second player, so it is beatable. The other demo app is a more traditional text adventure puzzle.[paragraph break]The briefing itself uses a not-yet-complete 'books' extension I'm working on that provides fairly elaborate book behavior. To see the talk slides, say 'read book' and keep saying it until you're done. Say 'help' for further meta-information."
+
+The maximum score is 2.
+
+Book - The Briefing Room
 
 There is a room called The Briefing Room. "This wood-paneled study is adequately if indirectly lit by wall-mounted lamps along the walls. In the center of the room is a table, and on the table are several books. Open doorframes lead west and south. A restroom door lies to the east."
 
-The briefing table is scenery in The Briefing Room. "This sturdy polished table of light mahogany has plenty of space to spread out."
+The briefing table is fixed in place scenery in The Briefing Room. "This sturdy polished table of light mahogany has plenty of space to spread out."
 
 Volume - Books
 
@@ -243,7 +257,7 @@ To say l: say line break.
 
 Table of Briefing Book Pages
 Page Text
-"[italic type]Inform 7 Briefing Book[roman type][l]by Bart Massey[p]Contents[l]2. History[l]3. Goals[l]4. Example[l]5. Learning[l]6. Caveats[l]7. Conclusion"
+"[italic type]Inform 7 Briefing Book[roman type][l]by Bart Massey[p]Contents[l]* History (p. 2)[l]* Goals (p. 3)[l]* Example (p. 4)[l]* Learning (p. 5)[l]* Caveats (p. 6)[l]* Conclusions (p. 7)"
 "Inform 7 is a language for writing text adventures.[p]I7 builds on Inform 6, a standard-looking (mostly) procedural language.[p]I6 is built on the Infocom [italic type]z-code[roman type] infrastructure.[p]I7 compiles to I6, which compiles to z-code.[p]Anything with a keyboard and display probably runs z-code."
 "The goal of I7 is to allow game authors to write in lightly-stylized English.[p]It turns out to be doable (even nice?) to write fairly intricate behaviors in this style.[p]Specifying machines, non-player characters (NPCs), complex environments, time, scenes, data structures, reasonable user I/O, and the like in I7 is routine for game writers.[p]In support of this, I7 offers powerful first-class features including a relation-base, constraint solvers, full functional programming, etc---all in reasonablish English."
 "The behavior of the book you are reading now was specified in maybe 30 paragraphs of I7.[p]The behavior and environment of the NPC next door, which includes playing perfect Nim, was specified in about 10 paragraphs.[p]Rather than give examples here, I would suggest that you go out-of-world (a cool power) and look at the I7 source to the tinyverse you live in."
@@ -366,7 +380,7 @@ The Airlock is a room. It is below the upper hatch and above the lower hatch. "Y
 
 A hatchway is a kind of door which is openable and lockable. It is usually closed. It is scenery. To say (H - a hatchway) position: if H is open, say "open"; otherwise say "closed".
 
-The upper hatch is a locked hatchway. It is above the Airlock and below the Real World. The description is "This [upper hatch position] hatch leads from the Airlock into the mysterious unknown."
+The upper hatch is a locked hatchway. It is above the Airlock. The description is "This [upper hatch position] hatch leads from the Airlock into the mysterious unknown."
 
 The lower hatch is an unlocked hatchway. It is below the Airlock and above the Demo Room. The description is "This [lower hatch position] hatch connects the Airlock and the Demo Room."
 
@@ -384,7 +398,7 @@ After going through the upper hatch: say "You climb out of the Demo Lab and into
 
 Chapter 2 - Testing and Debugging - Not for release
 
-Going unto is an action applying to one thing. Carry out going unto a room (called R) (this is the going unto a room rule): move the player to R. Before going unto a thing: ignore the basic accessibility rule. Carry out going unto a thing (called T) (this is the going unto a thing rule): move the player to the location of T. Understand "go unto [any room]" as going unto. Understand "go unto [any thing]" as going unto. Test go-unto with "go unto Real World / go unto wheel / go unto nonexistent / go unto Demo Room".
+Going unto is an action applying to one thing. Carry out going unto a room (called R) (this is the going unto a room rule): move the player to R. Before going unto a thing: ignore the basic accessibility rule. Carry out going unto a thing (called T) (this is the going unto a thing rule): move the player to the location of T. Understand "go unto [any room]" as going unto. Understand "go unto [any thing]" as going unto. Test go-unto with "go unto wheel / go unto nonexistent / go unto Demo Room".
 
 Test me with "test sign / test zorkmid / up / test airlock / test wheel".
 
@@ -399,6 +413,6 @@ Test wheel with "close lower / turn wheel / put zorkmid in / turn wheel / down /
 
 Chapter - The Restroom
 
-The Restroom Door is a door. The Restroom Door is east of The Briefing Room and west of the Genderless Restroom. "The restroom door bears the universal indication of both genders."
+The restroom door is a scenery door. The restroom door is east of The Briefing Room and west of the Genderless Restroom. The description is "The restroom door bears the universal indication of both genders."
 
 The Genderless Restroom is a room. "It's a restroom. You've seen them before. Do you really need a detailed model of all the fixtures? If you [italic type]must[roman type] flush the imaginary toilet, imagine doing so now, and supply your own vision of the result. Go ahead, I'll wait.[paragraph break]The door is to the west."
