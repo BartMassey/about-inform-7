@@ -4,7 +4,7 @@
 
 Volume - Setup
 
-Release along with cover art, the source text and the library card.
+Release along with an interpreter, cover art, the source text and the library card.
 
 After reading a command when the player's command matches the regular expression "^\p|^\*" (this is the ignore beta-comments rule): say "(noted)"; reject the player's command.
 
