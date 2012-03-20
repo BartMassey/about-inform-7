@@ -3,4 +3,4 @@ These are the notes from my March 7
 talk on
 [Inform 7](http://inform7.com).
 To review them, just
-[click here now](http://BartMassey.github.com/about-inform-7/play.html).
+[click here now](http://po8.org/bart/about-inform-7).
