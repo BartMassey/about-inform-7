@@ -28,7 +28,7 @@ The maximum score is 2.
 
 Book - The Briefing Room
 
-There is a room called The Briefing Room. "This wood-paneled study is adequately if indirectly lit by wall-mounted lamps along the walls. In the center of the room is a table, and on the table are several books. Open doorframes lead west and south. A restroom door lies to the east."
+There is a room called The Briefing Room. "This wood-paneled study is adequately if indirectly lit by wall-mounted lamps. In the center of the room is a table[if the number of books on the table is 1] with a book on it[otherwise if the number of books on the table is greater than 1], and on the table are several books[end if]. Open doorframes lead west and south. A restroom door lies to the east."
 
 The briefing table is fixed in place scenery in The Briefing Room. "This sturdy polished table of light mahogany has plenty of space to spread out."
 
