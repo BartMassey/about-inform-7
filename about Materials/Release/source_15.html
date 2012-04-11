@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Bart Massey - About Inform 7 — 17 of 36</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="author" content="Bart Massey" />
+  <meta name="description" content="A page for the game About Inform 7 by Bart Massey." />
+  <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+</head>
+
+<body>
+
+<div class = "container">
+
+<div class ="sourcecoverimage">
+	<span><a href="Cover.png"><img src="Small Cover.png" border="1" /></a></span>
+</div>
+
+<div class ="sourceintroduction">
+	<h1>
+		<span>About Inform 7</span> <span class="pagination">— 17 of 36</span>
+	</h1>
+	<h2>
+		<span>Bart Massey</span>
+	</h2>
+	<div class ="sourcebibliography">
+		<span>Release 1</span>
+	</div>
+</div>
+
+<div class = "links">
+<ul>
+<li><a href="index.html">Home page</a></li><li><a href="source.html">Beginning</a></li><li><a href="source_14.html">Previous</a></li><li><a href="source_16.html">Next</a></li>
+</ul>
+</div>
+
+<div class = "source">
+<p class="indent0"><span class="heading">Part - The Relevant Book</span></p><p class="indent0"></p><p class="indent0">The nonexistent book is a privately-named book. The last book touched is a book variable. The last book touched is the nonexistent book.</p><p class="indent0"></p><p class="indent0">Before an actor doing something to a book (called the book touched) (this is the remember the last book touched rule): now the last book touched is the book touched.</p><p class="indent0"></p><p class="indent0">To say error cannot find a relevant book (this is the say cannot find a relevant book error rule): say &quot;<span class="quote">There is no obvious choice of book.</span>&quot;</p><p class="indent0"></p><p class="indent0">To decide which book is the relevant book: If the last book touched is not the nonexistent book and the last book touched is visible, decide on the last book touched; if exactly one book is visible, decide on a random visible book; say error cannot find a relevant book; decide on the nonexistent book.</p><p class="indent0"></p><p class="indent0">Understand &quot;<span class="quote">read</span>&quot; as reading. Rule for supplying a missing noun when reading (this is the find a book to read rule): Let B be the relevant book; if B is the nonexistent book, rule fails; now the noun is B; say &quot;<span class="quote">(reading [</span><span class="substitution">the noun</span><span class="quote">])[</span><span class="substitution">command clarification break</span><span class="quote">]</span>&quot;.</p><p class="indent0"></p><p class="indent0">Turning to page is an action applying to one value and requiring light. Understand &quot;<span class="quote">turn to page [</span><span class="substitution">number</span><span class="quote">]</span>&quot; or &quot;<span class="quote">open to page [</span><span class="substitution">number</span><span class="quote">]</span>&quot; as turning to page.</p><p class="indent0"></p><p class="indent0">Carry out turning to page number (called the page number turned to) (this is the turn to page rule): Let B be the relevant book; if B is the nonexistent book, rule fails; try turning B to the page number turned to.</p><p class="indent0"></p><p class="indent0"><span class="comment">[Page turning is an action requiring light. Understand &quot;turn page&quot; or &quot;turn the page&quot; as page turning. </span></p><p class="indent0"><span class="comment"></span></p><p class="indent0"><span class="comment">Carry out page turning: Let B be the relevant book; if B is the nonexistent book, rule fails; let P be the current page of B; let Q be P + 1; try turning B to Q; say the current page number clarification of B.]</span></p><p class="indent0"></p>
+</div>
+
+<div class ="notes">
+
+</div>
+
+</div>
+
+</body>
+
+</html>
