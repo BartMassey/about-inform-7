@@ -1,5 +1,7 @@
 "Inform 7 Notes" by "Bart Massey"
 
+Use authorial modesty.
+
 Include Basic Literacy by Bart Massey.
 
 [Released under the Creative Commons Attribution 3.0 United States (CC BY 3.0) license. See http://creativecommons.org/licenses/by/3.0/us/ for license details.]
@@ -24,7 +26,7 @@ Helping is an action out of world. Carry out helping: say "For this help, say 'h
 
 Acknowledging is an action out of world. Carry out acknowledging: say "Sources for this work include the Inform 7 documentation, [italic type]Inform 7 for Programmers,[roman type] the [italic type]Inform 7 Handbook,[roman type] Aaron Reed's book [italic type]Creating Interactive Fiction with Inform 7[roman type] and a whole bunch of other stuff scattered around the web.[paragraph break]My brother, Byron Massey (20 September 1967 – 11 October 2010), was the great player of games in our family, and I wish I could show him what I'm doing. I think he might think it was cool." Understand "acknowledgements" or "acknowledgments" or "acks" as acknowledging.
 
-When play begins, say "Copyright (c) 2012 Bart Massey[paragraph break]This text 'adventure' is both the 'slides' for my talk and a couple of demo apps. One demo app, a Nim player, is based on a graphical Nim player I wrote for the 128K Macintosh around 1982. It plays perfectly, but only plays as second player, so it is beatable. The other demo app is a more traditional text adventure puzzle.[paragraph break]The briefing itself uses a not-yet-complete 'books' extension I'm working on that provides fairly elaborate book behavior. To see the talk slides, say 'read book' and keep saying it until you're done. Say 'help' for further meta-information."
+After printing the banner text, say "[paragraph break]Copyright (c) 2012 Bart Massey[paragraph break]This text 'adventure' is both the 'slides' for my talk and a couple of demo apps. One demo app, a Nim player, is based on a graphical Nim player I wrote for the 128K Macintosh around 1982. It plays perfectly, but only plays as second player, so it is beatable. The other demo app is a more traditional text adventure puzzle.[paragraph break]The Briefing Room uses a not-yet-complete 'books' extension I'm working on that provides fairly elaborate book behavior. To see the talk slides, say 'read book' and keep saying it until you're done. Say 'help' for further meta-information.[paragraph break]"
 
 The maximum score is 2.
 
