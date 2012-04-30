@@ -20,17 +20,19 @@ Rule for deciding whether all includes scenery: it does not.
 
 The story headline is "A Metareflective Talk Environment".
 
-Book - Out Of World
+When play begins, say "You enter the Inform Virtual Institute, passing under the sign with the ivy-leaf logo. The security door locks behind you---you're here for the day..."
+
+After printing the banner text, say "[paragraph break]Copyright (c) 2012 Bart Massey[paragraph break]This text 'adventure' is both the 'slides' for my talks on Inform 7 and a couple of demo apps.[paragraph break]One demo app, a Nim player, is also included as an example in my extension Bitwise Operators by Bart Massey. The other demo app is a more traditional text adventure puzzle.[paragraph break]The Briefing Room uses a not-yet-complete 'books' extension I'm working on that provides fairly elaborate book behavior. To see the talk slides, say 'read book' and keep saying it until you're done. Say 'help' for further meta-information.[paragraph break]"
+
+The maximum score is 2.
+
+The player is in the Dingy Corridor.
+
+Book - Some Meta-Actions
 
 Helping is an action out of world. Carry out helping: say "For this help, say 'help'. For basic information, say 'version'. For acknowledgments, say 'acks'. For other help, I'm afraid you're out of luck." Understand "help" as helping.
 
 Acknowledging is an action out of world. Carry out acknowledging: say "Sources for this work include the Inform 7 documentation, [italic type]Inform 7 for Programmers,[roman type] the [italic type]Inform 7 Handbook,[roman type] Aaron Reed's book [italic type]Creating Interactive Fiction with Inform 7[roman type] and a whole bunch of other stuff scattered around the web.[paragraph break]My brother, Byron Massey (20 September 1967 – 11 October 2010), was the great player of games in our family, and I wish I could show him what I'm doing. I think he might think it was cool." Understand "acknowledgements" or "acknowledgments" or "acks" as acknowledging.
-
-After printing the banner text, say "[paragraph break]Copyright (c) 2012 Bart Massey[paragraph break]This text 'adventure' is both the 'slides' for my talk and a couple of demo apps. One demo app, a Nim player, is based on a graphical Nim player I wrote for the 128K Macintosh around 1982. It plays perfectly, but only plays as second player, so it is beatable. The other demo app is a more traditional text adventure puzzle.[paragraph break]The Briefing Room uses a not-yet-complete 'books' extension I'm working on that provides fairly elaborate book behavior. To see the talk slides, say 'read book' and keep saying it until you're done. Say 'help' for further meta-information.[paragraph break]"
-
-The maximum score is 2.
-
-The player is in the Ontology Lab.
 
 Book - The Briefing Room
 
@@ -409,7 +411,7 @@ Volume - The Ontology Lab
 
 The Briefing Room Door is a scenery door. It is north of the Briefing Room.
 
-The Dingy Corridor is north of the Briefing Room Door. "This east-west corridor is dingy and unremarkable. The Briefing Room is through a door to the south. A west door leads to the Ontology Lab. A locked door lies to the east."
+The Dingy Corridor is north of the Briefing Room Door. "This east-west corridor is dingy and unremarkable. The Briefing Room is through a door to the south. A west door leads to the Ontology Lab. The locked front door lies to the east."
 
 The Outside Door is a scenery door. It is east of the Dingy Corridor. It is closed and locked.
 
