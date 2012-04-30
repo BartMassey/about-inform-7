@@ -421,6 +421,8 @@ The Ontology Lab is a room. "This well-lit room features a prominent [whiteboard
 
 The Steelcase desk is fixed in place scenery in the Ontology Lab. The description is "A classic Steelcase desk with four locked drawers." A drawer is a kind of container. It is usually closed and locked. Four drawers are part of the Steelcase desk.
 
+The sturdy desk chair is a supporter in the Ontology Lab. "A sturdy desk chair sits here." The description is "This chair looks like it would stand a lot of abuse. Good thing---there may be adventurers about."
+
 Book - The Ontology Lab Whiteboard
 
 The whiteboard is writable scenery in the Ontology Lab. The description is "A regulation-issue whiteboard with a metal tray.[if read text of the whiteboard is not empty] [the contents of the whiteboard][end if]". The read text is "SCRIBBLE ON ME". Understand "board" as the whiteboard. Understand "scribble [text] on [whiteboard]" as writing it on.
@@ -438,3 +440,39 @@ Report writing it on (this is the detailed report writing rule): say "You take t
 An eraser is an erasing tool. The description is usually "A classic fuzzy whiteboard eraser, none too clean." On the metal tray is an eraser.
 
 Test whiteboard with "read whiteboard / erase whiteboard / x whiteboard".
+
+Book - Professor Doppelgänger
+
+A man called Professor Doppelgänger is on the sturdy desk chair. The description is "Even after looking twice, this guy looks a lot like a professor you know named Bart Massey." Understand "Prof/Professor/Dr/--" as "[professional title]". Understand "Doppelgänger/Doppelganger" as "[Doppelganger name]". Understand "[professional title] [Doppelganger name]" or "[professional title]" or "[Doppelganger name]" as Professor  Doppelgänger.
+
+Mentioning is an action applying to one topic. Understand "mention [text]" as mentioning.
+
+Check mentioning a topic when Professor Doppelgänger is not visible: instead say "That sounds like something Professor Doppelgänger might be interested in. Too bad he's not around."
+
+Carry out mentioning a topic listed in the Table of Lecture Subjects: abide by the handwaving entry; rule succeeds.
+
+Carry out mentioning a topic: instead say "The Prof seems uninterested in [the topic understood]."
+
+Table of Lecture Subjects
+topic		handwaving
+topic		rule
+"outline"		lecture outline rule
+
+To stand the professor:
+	if Professor Doppelgänger is on the sturdy desk chair:
+		say "Prof Doppelgänger rises to his feet.[run paragraph on]";
+		silently try Professor Doppelgänger exiting;
+	otherwise:
+		say "Prof Doppelgänger yawns."
+
+To make the professor clear the whiteboard:
+	if the read text of the whiteboard is not "":
+		say "[run paragraph on]He wipes the board clean with his sleeve.[run paragraph on]"; 
+		now the read text of the whiteboard is "".
+
+To make the professor write (T - a text): make the professor clear the whiteboard; say "He pulls a marker from his pocket and scribbles on the board for a moment:"; now the read text of the whiteboard is T; silently try reading the whiteboard.
+
+This is the lecture outline rule: stand the professor; say "He says 'Hmm. Here's what I'd talk about.' He walks to the whiteboard."; make the professor write "Things to think about:[paragraph break]* Upper ontologies[paragraph break]* Relation descriptions[paragraph break]* Action descriptions".
+
+
+
