@@ -1,4 +1,6 @@
-"About Inform 7" by "Bart Massey"
+"Inform 7 Notes" by "Bart Massey"
+
+Include Basic Literacy by Bart Massey.
 
 [Released under the Creative Commons Attribution 3.0 United States (CC BY 3.0) license. See http://creativecommons.org/licenses/by/3.0/us/ for license details.]
 
@@ -26,6 +28,8 @@ When play begins, say "Copyright (c) 2012 Bart Massey[paragraph break]This text 
 
 The maximum score is 2.
 
+The player is in the Ontology Lab.
+
 Book - The Briefing Room
 
 There is a room called The Briefing Room. "This wood-paneled study is adequately if indirectly lit by wall-mounted lamps. In the center of the room is a table[if the number of books on the table is 1] with a book on it[otherwise if the number of books on the table is greater than 1], and on the table are several books[end if]. Open doorframes lead west and south. A restroom door lies to the east."
@@ -33,24 +37,6 @@ There is a room called The Briefing Room. "This wood-paneled study is adequately
 The briefing table is fixed in place scenery in The Briefing Room. "This sturdy polished table of light mahogany has plenty of space to spread out."
 
 Volume - Books
-
-Book - Reading
-
-[XXX: This book is deliberately not book-specific. It is arguable that this should be split out into a separate extension and eventually rolled into the Standard Rules in some form. Having "read" be a synonym for "examine" is bizarre IMHO.]
-
-Reading is an action applying to one visible thing and requiring light.
-
-Every thing has a text called the read text. The read text is usually "".
-
-Understand "read [thing]" as reading.
-
-To say error (the thing read - a thing) has no read text (this is the say no read text error rule): say "[The thing read] has no text to read."
-
-Check an actor reading a thing (called the thing read) (this is the check reading a thing rule): if the read text of the thing read is empty, instead say error the thing read has no read text.
-
-To say the read text of (the thing read - a thing) (this is the say the read text rule): Say "[command clarification break][the read text of the thing read][command clarification break][paragraph break]".
-
-Carry out an actor reading a thing (called the thing read) (this is the read a thing rule): say the read text of the thing read.
 
 Book - Books and Book Parts
 
@@ -400,7 +386,7 @@ Chapter 2 - Testing and Debugging - Not for release
 
 Going unto is an action applying to one thing. Carry out going unto a room (called R) (this is the going unto a room rule): move the player to R. Before going unto a thing: ignore the basic accessibility rule. Carry out going unto a thing (called T) (this is the going unto a thing rule): move the player to the location of T. Understand "go unto [any room]" as going unto. Understand "go unto [any thing]" as going unto. Test go-unto with "go unto wheel / go unto nonexistent / go unto Demo Room".
 
-Test me with "test sign / test zorkmid / up / test airlock / test wheel".
+Test lab with "test sign / test zorkmid / up / test airlock / test wheel".
 
 Test sign with "take sign / read sign".
 
@@ -416,3 +402,35 @@ Chapter - The Restroom
 The restroom door is a scenery door. The restroom door is east of The Briefing Room and west of the Genderless Restroom. The description is "The restroom door bears the universal indication of both genders."
 
 The Genderless Restroom is a room. "It's a restroom. You've seen them before. Do you really need a detailed model of all the fixtures? If you [italic type]must[roman type] flush the imaginary toilet, imagine doing so now, and supply your own vision of the result. Go ahead, I'll wait.[paragraph break]The door is to the west."
+
+Volume - The Ontology Lab
+
+The Briefing Room Door is a scenery door. It is north of the Briefing Room.
+
+The Dingy Corridor is north of the Briefing Room Door. "This east-west corridor is dingy and unremarkable. The Briefing Room is through a door to the south. A west door leads to the Ontology Lab. A locked door lies to the east."
+
+The Outside Door is a scenery door. It is east of the Dingy Corridor. It is closed and locked.
+
+The Lab Door is a scenery door. It is west  of the Dingy Corridor and east of the Ontology Lab. Understand "ontology lab door" as the Lab Door.
+
+The Ontology Lab is a room. "This well-lit room features a prominent [whiteboard] and a [Steelcase desk]."
+
+The Steelcase desk is fixed in place scenery in the Ontology Lab. The description is "A classic Steelcase desk with four locked drawers." A drawer is a kind of container. It is usually closed and locked. Four drawers are part of the Steelcase desk.
+
+Book - The Ontology Lab Whiteboard
+
+The whiteboard is writable scenery in the Ontology Lab. The description is "A regulation-issue whiteboard with a metal tray.[if read text of the whiteboard is not empty] [the contents of the whiteboard][end if]". The read text is "SCRIBBLE ON ME". Understand "board" as the whiteboard. Understand "scribble [text] on [whiteboard]" as writing it on.
+
+To say the contents of the whiteboard: say "Scribbled on the whiteboard is:"; silently try reading the whiteboard.
+
+The metal tray is a supporter. It is part of the whiteboard. The description is "This narrow metal tray is built to support markers and erasers."
+
+A marker is a kind of writing tool. A marker cap is a kind of thing. The description of a marker cap is usually "This cap keeps the marker from drying up." A marker cap is part of every marker. Does the player mean doing something with the marker cap: it is unlikely. Instead of doing something other than examining with the marker cap: say "There is no need to fiddle with the marker cap."
+
+The black marker is a marker on the metal tray. The description is "This is as generic a whiteboard marker as you'll ever hope to find. It has a black cap."  
+
+Report writing it on (this is the detailed report writing rule): say "You take the cap off the marker, write on [the second noun], and replace the cap carefully." The detailed report writing rule is listed instead of the report writing rule in the report writing it on rulebook.
+
+An eraser is an erasing tool. The description is usually "A classic fuzzy whiteboard eraser, none too clean." On the metal tray is an eraser.
+
+Test whiteboard with "read whiteboard / erase whiteboard / x whiteboard".
