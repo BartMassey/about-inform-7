@@ -458,10 +458,12 @@ Carry out mentioning a topic listed in the Table of Lecture Subjects: abide by t
 Carry out mentioning a topic: instead say "The Prof seems uninterested in [the topic understood]."
 
 Table of Lecture Subjects
-topic		handwaving
-topic		rule
-"outline"		lecture outline rule
-"cyc/lenat"	show cyc picture rule
+topic					handwaving
+topic					rule
+"outline"				lecture outline rule
+"cyc/lenat"			show cyc picture rule
+"actions"				show action diagram rule
+"handwave/handwaving"	handwave rule
 
 Chapter - Professorial Actions
 
@@ -531,18 +533,28 @@ Chapter - Lecture Outline
 
 This is the lecture outline rule: if the current board state of the whiteboard is prof outline, instead say "Prof Doppelgänger says 'You might want to review the outline on the board.'"; stand the professor; say "He says '[one of]Hmm... Here's[or]Like I said before, here's[stopping] what I'd talk about.' He walks to the whiteboard.[run paragraph on]"; make the professor write "Things to think about[paragraph break]* Upper ontologies[paragraph break]* Relation descriptions[paragraph break]* Action descriptions"; now the current board state of the whiteboard is prof outline.
 
-Chapter - Show Cyc Picture
+Chapter - Show Pictures
 
 The desk key unlocks the top drawer. Professor Doppelgänger carries it.
 
-This is the show cyc picture rule: make the professor deliver the picture of Lenat.
+Every picture is in the top drawer.
 
-The picture of Lenat is a picture. It is in the top drawer. The caption is "Computer Scientist Doug Lenat, founder of the Cyc Project".
+The picture of Lenat is a picture. The caption is "Computer Scientist Doug Lenat, founder of the Cyc Project". This is the show cyc picture rule: make the professor deliver the picture of Lenat.
 
-Section - The Picture (for Glulx only)
+The diagram of Inform 7 actions is a picture. The caption is "Structure of rulebooks for action processing". This is the show action diagram rule: make the professor deliver the diagram of Inform 7 actions.
+
+Section - The Pictures (for Glulx only)
 
 Figure of Lenat is the file "Lenat.jpg". The image of the picture of Lenat is the Figure of Lenat.
 
-Section - The Picture (for Z-machine only)
+Figure of Actions is the file "Actions.png". The image of the diagram of Inform 7 actions is the Figure of Actions.
+
+Section - The Pictures (for Z-machine only)
 
 The description of the picture of Lenat is "This grainy color photograph shows a man standing in front of a board filled with equations. He is a thickset and middle-aged, with short black hair."
+
+The description of the diagram of Inform 7 actions is "This diagram shows how an action starts by consulting its 'before' rulebook, then its 'check' rulebook, then its 'carry out' rulebook, then its 'report' rulebook, then its 'after' rulebook."
+
+Chapter - Handwave
+
+This is the handwave rule: stand the professor; say " Then he waves his hands frantically, gesticulating wildly in an attempt to convince you of the correctness of his views."
