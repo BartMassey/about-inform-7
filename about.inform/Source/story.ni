@@ -421,13 +421,15 @@ The Ontology Lab is a room. "This well-lit room features a prominent [whiteboard
 
 The steelcase desk is fixed in place scenery in the Ontology Lab. The description is "A classic steelcase desk with four locked drawers." The printed name is "Steelcase desk".
 
-A drawer is a kind of container. It is usually closed and locked. Three drawers are part of the steelcase desk. A drawer called the top drawer is part of the steelcase desk.
+A drawer is a kind of container. It is openable and lockable. It is usually closed and locked. Three drawers are part of the steelcase desk. A drawer called the top drawer is part of the steelcase desk.
 
-The sturdy desk chair is a supporter in the Ontology Lab. "A sturdy desk chair sits here." The description is "This chair looks like it would stand a lot of abuse. Good thing---there may be adventurers about."
+The sturdy desk chair is an enterable supporter in the Ontology Lab. "A sturdy desk chair sits here." The description is "This chair looks like it would stand a lot of abuse. Good thing---there may be adventurers about."
 
 Book - The Ontology Lab Whiteboard
 
 The whiteboard is writable scenery in the Ontology Lab. The description is "A regulation-issue whiteboard with a metal tray.[if read text of the whiteboard is not empty] [the contents of the whiteboard][end if]". The read text is "SCRIBBLE ON ME". Understand "board" as the whiteboard. Understand "scribble [text] on [whiteboard]" as writing it on.
+
+A board state description is a kind of value. Board state descriptions are user scribbling, blank slate, or prof outline. The whiteboard has a board state description called the current board state. The current board state is usually blank slate. After erasing the whiteboard, now the current board state is blank slate. After writing on the whiteboard, now the current board state is user scribbling.
 
 To say the contents of the whiteboard: say "Scribbled on the whiteboard is:"; silently try reading the whiteboard.
 
@@ -479,12 +481,9 @@ To seat the professor:
 	otherwise:
 		silently try Professor Doppelgänger entering the sturdy desk chair;
 		if Professor Doppelgänger is on the sturdy desk chair:
-			say "Prof Doppelgänger sits.[run paragraph on]";
+			say "Prof Doppelgänger sits. [run paragraph on]";
 		otherwise:
-			say "Prof Doppelgänger looks as though he'd like to sit down; he seems a bit cranky about not being able to.";
-			rule fails.
-
-
+			say "Prof Doppelgänger looks as though he'd like to sit down; he seems a bit cranky about not being able to."
 
 To make the professor clear the whiteboard:
 	if the read text of the whiteboard is not "":
@@ -495,17 +494,17 @@ To make the professor write (T - a text): make the professor clear the whiteboar
 
 Chapter - Lecture Outline
 
-This is the lecture outline rule: stand the professor; say "He says 'Hmm. Here's what I'd talk about.' He walks to the whiteboard."; make the professor write "Things to think about[paragraph break]* Upper ontologies[paragraph break]* Relation descriptions[paragraph break]* Action descriptions".
+This is the lecture outline rule: if the current board state of the whiteboard is prof outline, instead say "Professor Doppelgänger says 'You might want to review the outline on the board.'"; stand the professor; say "He says '[one of]Hmm... Here's[or]Like I said before, here's[stopping] what I'd talk about.' He walks to the whiteboard.[run paragraph on]"; make the professor write "Things to think about[paragraph break]* Upper ontologies[paragraph break]* Relation descriptions[paragraph break]* Action descriptions"; now the current board state of the whiteboard is prof outline.
 
 Chapter - Show Cyc Picture
 
-The desk key unlocks the top drawer of the steelcase desk. The Professor carries it.
+The desk key unlocks the top drawer. The Professor carries it.
 
-This is the show cyc picture rule: seat the professor; silently try Professor Doppelgänger unlocking the top drawer of the steelcase desk with the desk key; silently try Professor Doppelgänger opening the top drawer of the steelcase desk; if the top drawer of the steelcase desk is closed, instead say "He tries to unlock the top drawer of the desk with a key he takes from his pocket, but finds he cannot."; say "He unlocks the top drawer of the desk with a key he takes from his pocket[run paragraph on]"; silently try Professor Doppelgänger taking the picture of Lenat; if Professor Doppelgänger does not carry the picture of Lenat, instead say " and looks for a picture, but fails to find it."; say ",  removes a picture from the drawer[run paragraph on]"; silently try Professor Doppelgänger closing the top drawer of the steelcase desk; silently try Professor Doppelgänger locking the top drawer of the steelcase desk with the desk key; now the player carries the picture of Lenat; say ", relocks the it and hands the picture to you."
+This is the show cyc picture rule: if the picture of Lenat is not in the top drawer, instead say "Professor Doppelgänger says 'You might want to look at that picture of Lenat I gave you.'"; seat the professor; silently try Professor Doppelgänger unlocking the top drawer with the desk key; silently try Professor Doppelgänger opening the top drawer; if the top drawer is closed, instead say "He tries to unlock the top drawer of the desk with a key he takes from his pocket, but finds he cannot."; say "He unlocks the top drawer of the desk with a key he takes from his pocket[run paragraph on]"; silently try Professor Doppelgänger taking the picture of Lenat; if Professor Doppelgänger does not carry the picture of Lenat, instead say " and looks for a picture, but fails to find it."; say ", removes a picture from the drawer[run paragraph on]"; silently try Professor Doppelgänger closing the top drawer; silently try Professor Doppelgänger locking the top drawer with the desk key; now the player carries the picture of Lenat; say ", relocks the it and hands the picture to you. He says 'This is a [picture of Lenat].'".
 
-The picture of Lenat is a thing. It is in the top drawer of the steelcase desk.
+The picture of Lenat is a thing. It is in the top drawer.
 
-To say Lenat picture caption: say "The caption is 'Computer Scientist Doug Lenat, founder of the Cyc Project.'".
+To say Lenat picture caption: say "Computer Scientist Doug Lenat, founder of the Cyc Project".
 
 Section - The Picture (for Glulx only)
 
@@ -515,4 +514,4 @@ instead of examining the picture of Lenat: display the Figure of Lenat; say Lena
 
 Section - The Picture (for Z-machine only)
 
-The description of the picture of Lenat is "This grainy color photograph shows Doug Lenat standing in front of a board filled with equations. He is a thickset middle-aged man with short black hair. [Lenat picture caption]".
+The description of the picture of Lenat is "This grainy color photograph shows Doug Lenat standing in front of a board filled with equations. He is a thickset middle-aged man with short black hair. The caption is '[Lenat picture caption]'."
