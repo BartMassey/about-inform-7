@@ -492,26 +492,57 @@ To make the professor clear the whiteboard:
 
 To make the professor write (T - a text): make the professor clear the whiteboard; say "He pulls a marker from his pocket and scribbles on the board for a moment:"; now the read text of the whiteboard is T; silently try reading the whiteboard.
 
+A picture is a kind of thing. It has a text called the caption.
+
+Section - Pictures (for Glulx only)
+
+A picture has a figure name called the image.
+
+Instead of examining a picture (called the picture examined): display the image of the picture examined; say the caption of the picture examined.
+
+Section - Pictures (for Z-machine only)
+
+Instead of examining a picture (called the picture examined): say "[description of the picture examined] The caption is '[caption of the picture examined]'."
+
+Section - Picture Delivery
+
+To make the professor deliver (X - a picture):
+	if X is not in the top drawer:
+		say "Prof Doppelgänger says 'You might want to look at that [X] I gave you.'";
+	otherwise:
+		seat the professor;
+		silently try Professor Doppelgänger unlocking the top drawer with the desk key;
+		silently try Professor Doppelgänger opening the top drawer;
+		if the top drawer is closed:
+			say "He tries to unlock the top drawer of the desk with a key he takes from his pocket, but finds he cannot."; 
+		otherwise:
+			say "He unlocks the top drawer of the desk with a key he takes from his pocket[run paragraph on]";
+			silently try Professor Doppelgänger taking X;
+			if Professor Doppelgänger does not carry X:
+				say " and looks for a picture, but fails to find it.";
+			otherwise:
+				say ", removes a picture from the drawer[run paragraph on]";
+				silently try Professor Doppelgänger closing the top drawer;
+				silently try Professor Doppelgänger locking the top drawer with the desk key;
+				now the player carries X;
+				say ", relocks it and hands the picture to you. He says 'This is [a X].'".
+
 Chapter - Lecture Outline
 
-This is the lecture outline rule: if the current board state of the whiteboard is prof outline, instead say "Professor Doppelgänger says 'You might want to review the outline on the board.'"; stand the professor; say "He says '[one of]Hmm... Here's[or]Like I said before, here's[stopping] what I'd talk about.' He walks to the whiteboard.[run paragraph on]"; make the professor write "Things to think about[paragraph break]* Upper ontologies[paragraph break]* Relation descriptions[paragraph break]* Action descriptions"; now the current board state of the whiteboard is prof outline.
+This is the lecture outline rule: if the current board state of the whiteboard is prof outline, instead say "Prof Doppelgänger says 'You might want to review the outline on the board.'"; stand the professor; say "He says '[one of]Hmm... Here's[or]Like I said before, here's[stopping] what I'd talk about.' He walks to the whiteboard.[run paragraph on]"; make the professor write "Things to think about[paragraph break]* Upper ontologies[paragraph break]* Relation descriptions[paragraph break]* Action descriptions"; now the current board state of the whiteboard is prof outline.
 
 Chapter - Show Cyc Picture
 
-The desk key unlocks the top drawer. The Professor carries it.
+The desk key unlocks the top drawer. Professor Doppelgänger carries it.
 
-This is the show cyc picture rule: if the picture of Lenat is not in the top drawer, instead say "Professor Doppelgänger says 'You might want to look at that picture of Lenat I gave you.'"; seat the professor; silently try Professor Doppelgänger unlocking the top drawer with the desk key; silently try Professor Doppelgänger opening the top drawer; if the top drawer is closed, instead say "He tries to unlock the top drawer of the desk with a key he takes from his pocket, but finds he cannot."; say "He unlocks the top drawer of the desk with a key he takes from his pocket[run paragraph on]"; silently try Professor Doppelgänger taking the picture of Lenat; if Professor Doppelgänger does not carry the picture of Lenat, instead say " and looks for a picture, but fails to find it."; say ", removes a picture from the drawer[run paragraph on]"; silently try Professor Doppelgänger closing the top drawer; silently try Professor Doppelgänger locking the top drawer with the desk key; now the player carries the picture of Lenat; say ", relocks the it and hands the picture to you. He says 'This is a [picture of Lenat].'".
+This is the show cyc picture rule: make the professor deliver the picture of Lenat.
 
-The picture of Lenat is a thing. It is in the top drawer.
-
-To say Lenat picture caption: say "Computer Scientist Doug Lenat, founder of the Cyc Project".
+The picture of Lenat is a picture. It is in the top drawer. The caption is "Computer Scientist Doug Lenat, founder of the Cyc Project".
 
 Section - The Picture (for Glulx only)
 
-Figure of Lenat is the file "Lenat.jpg".
-
-instead of examining the picture of Lenat: display the Figure of Lenat; say Lenat picture caption.
+Figure of Lenat is the file "Lenat.jpg". The image of the picture of Lenat is the Figure of Lenat.
 
 Section - The Picture (for Z-machine only)
 
-The description of the picture of Lenat is "This grainy color photograph shows Doug Lenat standing in front of a board filled with equations. He is a thickset middle-aged man with short black hair. The caption is '[Lenat picture caption]'."
+The description of the picture of Lenat is "This grainy color photograph shows a man standing in front of a board filled with equations. He is a thickset and middle-aged, with short black hair."
