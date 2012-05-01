@@ -417,9 +417,11 @@ The Outside Door is a scenery door. It is east of the Dingy Corridor. It is clos
 
 The Lab Door is a scenery door. It is west  of the Dingy Corridor and east of the Ontology Lab. Understand "ontology lab door" as the Lab Door.
 
-The Ontology Lab is a room. "This well-lit room features a prominent [whiteboard] and a [Steelcase desk]."
+The Ontology Lab is a room. "This well-lit room features a prominent [whiteboard] and a [steelcase desk]."
 
-The Steelcase desk is fixed in place scenery in the Ontology Lab. The description is "A classic Steelcase desk with four locked drawers." A drawer is a kind of container. It is usually closed and locked. Four drawers are part of the Steelcase desk.
+The steelcase desk is fixed in place scenery in the Ontology Lab. The description is "A classic steelcase desk with four locked drawers." The printed name is "Steelcase desk".
+
+A drawer is a kind of container. It is usually closed and locked. Three drawers are part of the steelcase desk. A drawer called the top drawer is part of the steelcase desk.
 
 The sturdy desk chair is a supporter in the Ontology Lab. "A sturdy desk chair sits here." The description is "This chair looks like it would stand a lot of abuse. Good thing---there may be adventurers about."
 
@@ -457,13 +459,32 @@ Table of Lecture Subjects
 topic		handwaving
 topic		rule
 "outline"		lecture outline rule
+"cyc/lenat"	show cyc picture rule
+
+Chapter - Professorial Actions
+
+[This is essentially a grammar trick to get the Prof's name at the start of a paragraph; might as well do some characterization while we're at it. The alternative would be to handle the pronouns better, which wouldn't be hard.]
+To say prof shtick: say "Prof Doppelgänger [one of]yawns[or]rubs his eyes[or]sighs[or]searches his pockets for chocolate[or]grimaces[or]looks bored[or]looks around the room[or]stares intently[or]gets ready to lecture[or]scratches his head[or]blinks[or]stares into the distance[or]drums his fingers on his leg[or]looks at the ceiling for a moment[at random]. [run paragraph on]".
 
 To stand the professor:
 	if Professor Doppelgänger is on the sturdy desk chair:
 		say "Prof Doppelgänger rises to his feet.[run paragraph on]";
 		silently try Professor Doppelgänger exiting;
 	otherwise:
-		say "Prof Doppelgänger yawns."
+		say prof shtick.
+
+To seat the professor:
+	if Professor Doppelgänger is on the sturdy desk chair:
+		say prof shtick;
+	otherwise:
+		silently try Professor Doppelgänger entering the sturdy desk chair;
+		if Professor Doppelgänger is on the sturdy desk chair:
+			say "Prof Doppelgänger sits.[run paragraph on]";
+		otherwise:
+			say "Prof Doppelgänger looks as though he'd like to sit down; he seems a bit cranky about not being able to.";
+			rule fails.
+
+
 
 To make the professor clear the whiteboard:
 	if the read text of the whiteboard is not "":
@@ -472,7 +493,26 @@ To make the professor clear the whiteboard:
 
 To make the professor write (T - a text): make the professor clear the whiteboard; say "He pulls a marker from his pocket and scribbles on the board for a moment:"; now the read text of the whiteboard is T; silently try reading the whiteboard.
 
-This is the lecture outline rule: stand the professor; say "He says 'Hmm. Here's what I'd talk about.' He walks to the whiteboard."; make the professor write "Things to think about:[paragraph break]* Upper ontologies[paragraph break]* Relation descriptions[paragraph break]* Action descriptions".
+Chapter - Lecture Outline
 
+This is the lecture outline rule: stand the professor; say "He says 'Hmm. Here's what I'd talk about.' He walks to the whiteboard."; make the professor write "Things to think about[paragraph break]* Upper ontologies[paragraph break]* Relation descriptions[paragraph break]* Action descriptions".
 
+Chapter - Show Cyc Picture
 
+The desk key unlocks the top drawer of the steelcase desk. The Professor carries it.
+
+This is the show cyc picture rule: seat the professor; silently try Professor Doppelgänger unlocking the top drawer of the steelcase desk with the desk key; silently try Professor Doppelgänger opening the top drawer of the steelcase desk; if the top drawer of the steelcase desk is closed, instead say "He tries to unlock the top drawer of the desk with a key he takes from his pocket, but finds he cannot."; say "He unlocks the top drawer of the desk with a key he takes from his pocket[run paragraph on]"; silently try Professor Doppelgänger taking the picture of Lenat; if Professor Doppelgänger does not carry the picture of Lenat, instead say " and looks for a picture, but fails to find it."; say ",  removes a picture from the drawer[run paragraph on]"; silently try Professor Doppelgänger closing the top drawer of the steelcase desk; silently try Professor Doppelgänger locking the top drawer of the steelcase desk with the desk key; now the player carries the picture of Lenat; say ", relocks the it and hands the picture to you."
+
+The picture of Lenat is a thing. It is in the top drawer of the steelcase desk.
+
+To say Lenat picture caption: say "The caption is 'Computer Scientist Doug Lenat, founder of the Cyc Project.'".
+
+Section - The Picture (for Glulx only)
+
+Figure of Lenat is the file "Lenat.jpg".
+
+instead of examining the picture of Lenat: display the Figure of Lenat; say Lenat picture caption.
+
+Section - The Picture (for Z-machine only)
+
+The description of the picture of Lenat is "This grainy color photograph shows Doug Lenat standing in front of a board filled with equations. He is a thickset middle-aged man with short black hair. [Lenat picture caption]".
