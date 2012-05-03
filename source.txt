@@ -506,7 +506,7 @@ Instead of examining a picture (called the picture examined) when graphics are a
 
 Section - Textual pictures
 
-Instead of examining a picture (called the picture examined): say "[description of the picture examined] The caption is '[caption of the picture examined]'."
+Instead of examining a picture (called the picture examined): say "[if the picture examined is undescribed]This appears to be a picture of some sort.[otherwise][description of the picture examined][end if] The caption is '[caption of the picture examined]'."
 
 Section - Picture Delivery
 
@@ -551,7 +551,7 @@ Figure of Lenat is the file "Lenat.jpg". The image of the picture of Lenat is th
 
 Figure of Actions is the file "Actions.png". The image of the diagram of Inform 7 actions is the Figure of Actions.
 
-Section - The Pictures (for Z-machine only)
+Section - The Pictures
 
 The description of the picture of Lenat is "This grainy color photograph shows a man standing in front of a board filled with equations. He is a thickset and middle-aged, with short black hair."
 
