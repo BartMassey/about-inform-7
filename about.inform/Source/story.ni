@@ -455,12 +455,18 @@ Check mentioning a topic when Professor Doppelgänger is not visible: instead sa
 
 Carry out mentioning a topic listed in the Table of Lecture Subjects: abide by the handwaving entry; rule succeeds.
 
+Understand "ontology/ontologies" as "[ontol]".
+
 Carry out mentioning a topic: instead say "The Prof seems uninterested in [the topic understood]."
 
 Table of Lecture Subjects
 topic					handwaving
 topic					rule
 "outline"				lecture outline rule
+"[ontol]"				lecture about ontology rule
+"upper/-- [ontol]"		lecture about upper ontology rule
+"relations-actions"		lecture about relations-actions rule
+"declarative"			lecture about declarative rule
 "cyc/lenat"			show cyc picture rule
 "actions"				show action diagram rule
 "handwave/handwaving"	handwave rule
@@ -506,11 +512,13 @@ Instead of examining a picture (called the picture examined) when graphics are a
 
 Section - Pictures (for Z-machine only)
 
+[Yes, Z-machine 6 has graphics, but I don't want to figure them out right now; they don't seem to particularly be supported by Inform 7.]
+
 To decide whether graphics are available: no.
 
 Section - Textual pictures
 
-Instead of examining a picture (called the picture examined): if graphics are available, say "Hmm... I probably should have shown you the picture. Sorry."; say "[if the picture examined is undescribed]This appears to be a picture of some sort.[otherwise][description of the picture examined][end if] The caption is '[caption of the picture examined]'."
+Instead of examining a picture (called the picture examined): if graphics are available, say "[debug]Hmm... I probably should have shown you the picture. Sorry. [end debug]"; say "[if the picture examined is undescribed]This appears to be a picture of some sort. [otherwise][description of the picture examined] [end if]The caption is '[caption of the picture examined]'."
 
 Section - Picture Delivery
 
@@ -535,9 +543,35 @@ To make the professor deliver (X - a picture):
 				now the player carries X;
 				say ", relocks it and hands the picture to you. He says 'This is [a X].'".
 
-Chapter - Lecture Outline
+Chapter - Lecture
 
-This is the lecture outline rule: if the current board state of the whiteboard is prof outline, instead say "Prof Doppelgänger says 'You might want to review the outline on the board.'"; stand the professor; say "He says '[one of]Hmm... Here's[or]Like I said before, here's[stopping] what I'd talk about.' He walks to the whiteboard.[run paragraph on]"; make the professor write "Things to think about[paragraph break]* Upper ontologies[paragraph break]* Relation descriptions[paragraph break]* Action descriptions"; now the current board state of the whiteboard is prof outline.
+This is the lecture outline rule: if the current board state of the whiteboard is prof outline, instead say "Prof Doppelgänger says 'You might want to review the outline on the board.'"; stand the professor; say "He says '[one of]Hmm... Here's[or]Like I said before, here's[stopping] what I'd talk about.' He walks to the whiteboard.[run paragraph on]"; make the professor write "Things to think about
+
+* Ontologies
+
+* Upper ontologies
+
+* Relation and action descriptions
+
+* Declarative representations"; now the current board state of the whiteboard is prof outline.
+
+To lecture saying (lecture text - a text): if the current board state of the whiteboard is not prof outline, consider the lecture outline rule; say "(Prof Doppelgänger starts to lecture.)[bold type][paragraph break][lecture text][roman type]".
+
+This is the lecture about ontology rule: lecture saying "In computer science, an ontology is a declarative description of a system useful for reasoning about that system.
+
+According to Tom Gruber 'An ontology is a specification of a conceptualization.' He notes that 'An ontology specifies a vocabulary with which to make assertions, which may be inputs or outputs of knowledge agents (such as a software program).  As an interface specification, the ontology provides a language for communicating with the agent.  An agent supporting this interface is not required to use the terms of the ontology as an internal encoding of its knowledge. Nonetheless, the definitions and formal constraints of the ontology do put restrictions on what can be meaningfully stated in this language.'"
+
+This is the lecture about upper ontology rule: lecture saying "An upper ontology is generic rules used to build other ontologies. Inform 7 is either an upper ontology or an ontology for writing text adventures; it's kind of hard to tell.
+
+One can easily imagine reimplementing or extending Inform 7 to work (well) outside the domain of text adventures."
+
+This is the lecture about relations-actions rule: lecture saying "Early ontologies described systems like naïve physics in which action (system change) plays an important role. The recent trend is in the other direction: describing passive systems in terms of simple, often binary relations.
+
+OWL and its specialization RDF are capable description languages, but they do not have any particular support for active systems. One can specify relations that imply actions (reification), but it's all kind of awkward and inexpressive."
+
+This is the lecture about declarative rule: lecture saying "There's a fine line between a semantic description of action and a computer program (c.f. Nimrod). It is interesting to consider in what sense Inform 7 is declarative.
+
+Arguably, Inform 7 is as declarative as Cyc's CycL. I7 is a much more expressive language than CycL. However, its encoding of procedural knowledge raises some important questions about the ontology enterprise."
 
 Chapter - Show Pictures
 
@@ -566,3 +600,19 @@ The description of the diagram of Inform 7 actions is "This diagram shows how an
 Chapter - Handwave
 
 This is the handwave rule: stand the professor; say " Then he waves his hands frantically, gesticulating wildly in an attempt to convince you of the correctness of his views."
+
+Chapter - Talk Notes
+
+Some talk notes are on the Steelcase desk. The description is "This appears to be notes for an Inform 7 talk." The read text is "If you are reading these notes, perhaps you're giving a talk entitled [italic type]Understand 'Inform 7' as an Ontological Description Language[roman type]. If so, here's how you want to proceed:
+
+* Explain about Inform 7
+
+* Show off the talk environment
+
+* Show off the source code
+
+* Mention outline
+
+* Mention cyc
+
+* Mention actions"
