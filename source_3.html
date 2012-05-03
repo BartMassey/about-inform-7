@@ -1,10 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-  <title>Bart Massey - About Inform 7 — 5 of 36</title>
+  <title>Bart Massey - Inform 7 Notes — 5 of 47</title>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
   <meta name="author" content="Bart Massey" />
-  <meta name="description" content="A page for the game About Inform 7 by Bart Massey." />
+  <meta name="description" content="A page for the game Inform 7 Notes by Bart Massey." />
   <link rel="stylesheet" href="style.css" type="text/css" media="all" />
 </head>
 
@@ -18,7 +18,7 @@
 
 <div class ="sourceintroduction">
 	<h1>
-		<span>About Inform 7</span> <span class="pagination">— 5 of 36</span>
+		<span>Inform 7 Notes</span> <span class="pagination">— 5 of 47</span>
 	</h1>
 	<h2>
 		<span>Bart Massey</span>
@@ -35,7 +35,7 @@
 </div>
 
 <div class = "source">
-<p class="indent0"><span class="heading">Volume - Books</span></p><p class="indent0"></p><p class="indent0"><span class="heading">Book - Reading</span></p><p class="indent0"></p><p class="indent0"><span class="comment">[XXX: This book is deliberately not book-specific. It is arguable that this should be split out into a separate extension and eventually rolled into the Standard Rules in some form. Having &quot;read&quot; be a synonym for &quot;examine&quot; is bizarre IMHO.]</span></p><p class="indent0"></p><p class="indent0">Reading is an action applying to one visible thing and requiring light.</p><p class="indent0"></p><p class="indent0">Every thing has a text called the read text. The read text is usually &quot;<span class="quote"></span>&quot;.</p><p class="indent0"></p><p class="indent0">Understand &quot;<span class="quote">read [</span><span class="substitution">thing</span><span class="quote">]</span>&quot; as reading.</p><p class="indent0"></p><p class="indent0">To say error (the thing read - a thing) has no read text (this is the say no read text error rule): say &quot;<span class="quote">[</span><span class="substitution">The thing read</span><span class="quote">] has no text to read.</span>&quot;</p><p class="indent0"></p><p class="indent0">Check an actor reading a thing (called the thing read) (this is the check reading a thing rule): if the read text of the thing read is empty, instead say error the thing read has no read text.</p><p class="indent0"></p><p class="indent0">To say the read text of (the thing read - a thing) (this is the say the read text rule): Say &quot;<span class="quote">[</span><span class="substitution">command clarification break</span><span class="quote">][</span><span class="substitution">the read text of the thing read</span><span class="quote">][</span><span class="substitution">command clarification break</span><span class="quote">][</span><span class="substitution">paragraph break</span><span class="quote">]</span>&quot;.</p><p class="indent0"></p><p class="indent0">Carry out an actor reading a thing (called the thing read) (this is the read a thing rule): say the read text of the thing read.</p><p class="indent0"></p>
+<p class="indent0"><span class="heading">Volume - Books</span></p><p class="indent0"></p><p class="indent0"><span class="heading">Book - Books and Book Parts</span></p><p class="indent0"></p><p class="indent0">A book is a kind of container. It is openable. It is usually closed. It has some text called the title. The description is usually &quot;<span class="quote">[</span><span class="substitution">the default book description of the item described</span><span class="quote">][</span><span class="substitution">run paragraph on</span><span class="quote">]</span>&quot;.</p><p class="indent0"></p><p class="indent0">To say the default book description of (the book described - a book) (this is the say the default book description rule): if the book described is open, say &quot;<span class="quote">[</span><span class="substitution">The book described</span><span class="quote">] is open.</span>&quot;; if the book described is closed and the book described is titled, say &quot;<span class="quote">[</span><span class="substitution">The book described</span><span class="quote">] is titled '[</span><span class="substitution">the title of the book described</span><span class="quote">]'.</span>&quot;; if the book described is closed and the book described is untitled, say &quot;<span class="quote">[</span><span class="substitution">The book described</span><span class="quote">] is closed.</span>&quot;</p><p class="indent0"></p>
 </div>
 
 <div class ="notes">
