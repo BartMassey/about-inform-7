@@ -1,10 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-  <title>Bart Massey - Inform 7 Notes — 25 of 47</title>
+  <title>Bart Massey - About Inform 7 — 25 of 36</title>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
   <meta name="author" content="Bart Massey" />
-  <meta name="description" content="A page for the game Inform 7 Notes by Bart Massey." />
+  <meta name="description" content="A page for the game About Inform 7 by Bart Massey." />
   <link rel="stylesheet" href="style.css" type="text/css" media="all" />
 </head>
 
@@ -18,7 +18,7 @@
 
 <div class ="sourceintroduction">
 	<h1>
-		<span>Inform 7 Notes</span> <span class="pagination">— 25 of 47</span>
+		<span>About Inform 7</span> <span class="pagination">— 25 of 36</span>
 	</h1>
 	<h2>
 		<span>Bart Massey</span>
@@ -35,7 +35,7 @@
 </div>
 
 <div class = "source">
-<p class="indent0"><span class="heading">Section - The Setting</span></p><p class="indent0"></p><p class="indent0">A nim table is a scenery supporter in The Game Room.  The description is &quot;<span class="quote">This table is waist-high, and has three pits for stones. [</span><span class="substitution">The description of pit one</span><span class="quote">] [</span><span class="substitution">The description of pit two</span><span class="quote">] [</span><span class="substitution">The description of pit three</span><span class="quote">]</span>&quot;. A high-backed chair is a scenery supporter in The Game Room. The description is &quot;<span class="quote">The high back of this chair is ornately carved.</span>&quot; The carvings are part of the high-backed chair. The description is &quot;<span class="quote">Intricately-carved abstract patterns somehow express the nim-ness of the situation.</span>&quot;</p><p class="indent0"></p><p class="indent0">Nimrod is on the high-backed chair. He is scenery. The description is &quot;<span class="quote">Nimrod's long black hair, pulled back and fastened, contrasts with his pale skin, as does the black stubble on his cheek and jaw. His white gi is fastened with a white belt.</span>&quot; Nimrod wears a white gi. The description of the white gi is &quot;<span class="quote">The garment appears sound, but its long use is apparent. In short, this gi is the epitome of comfortable clothing.</span>&quot; Nimrod wears a white belt. The description of the white belt is &quot;<span class="quote">Why does Nimrod wear a white belt? To keep his gi shut.</span>&quot;</p><p class="indent0"></p><p class="indent0">To say (n - a number) stones: if n is 0, say &quot;<span class="quote">nothing</span>&quot;; if n is 1, say &quot;<span class="quote">one stone</span>&quot;; if n is greater than 1, say &quot;<span class="quote">[</span><span class="substitution">n</span><span class="quote">] stones</span>&quot;.</p><p class="indent0"></p><p class="indent0">A pit is a kind of thing. Every pit has a number called the stone count. The description of a pit is &quot;<span class="quote">[</span><span class="substitution">The item described</span><span class="quote">] contains [</span><span class="substitution">the stone count of the item described stones</span><span class="quote">].</span>&quot;</p><p class="indent0"></p><p class="indent0">A pit called pit one is part of the nim table. The stone count of it is 3. Understand &quot;<span class="quote">pit 1</span>&quot; as pit one.</p><p class="indent0"></p><p class="indent0">A pit called pit two is part of the nim table. The stone count of it is 5. Understand &quot;<span class="quote">pit 2</span>&quot; as pit two.</p><p class="indent0"></p><p class="indent0">A pit called pit three is part of the nim table. The stone count of it is 7. Understand &quot;<span class="quote">pit 3</span>&quot; as pit three.</p><p class="indent0"></p>
+<p class="indent0"><span class="heading">Section - The XORer - Not for release</span></p><p class="indent0"></p><p class="indent0">A register is a kind of thing. Every register has a number called the rvalue. The rvalue is usually 0. The description of a register is &quot;<span class="quote">This register is currently set to [</span><span class="substitution">rvalue of the item described</span><span class="quote">].</span>&quot;</p><p class="indent0"></p><p class="indent0">To decide what number is the xor of (a - a register) and (b - a register): let ra be the rvalue of a; let rb be the rvalue of b; decide on the xor of ra and rb.</p><p class="indent0"></p><p class="indent0">The xorer is a thing in The Game Room. &quot;<span class="quote">A high-quality xorer sits in a corner of the room, each input register ready for assignment.</span>&quot; A register called the alpha register is part of the xorer. A register called the beta register is part of the xorer. The description of the xorer is &quot;<span class="quote">The xorer indicates that the xor of alpha = [</span><span class="substitution">the rvalue of alpha</span><span class="quote">] and beta = [</span><span class="substitution">the rvalue of beta</span><span class="quote">] is [</span><span class="substitution">the xor of alpha and beta</span><span class="quote">].</span>&quot;</p><p class="indent0"></p><p class="indent0">Assigning it to is an action applying to one value and one visible thing and requiring light. Understand &quot;<span class="quote">assign [</span><span class="substitution">number</span><span class="quote">] to [</span><span class="substitution">register</span><span class="quote">]</span>&quot; as assigning it to. Check assigning a number (called v) to a register: if v &lt; 0, say &quot;<span class="quote">The registers are unsigned.</span>&quot; instead. Carry out assigning a number (called v) to a register (called r): now the rvalue of r is v.</p><p class="indent0"></p>
 </div>
 
 <div class ="notes">

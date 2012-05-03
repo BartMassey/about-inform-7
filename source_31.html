@@ -1,10 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-  <title>Bart Massey - Inform 7 Notes — 33 of 47</title>
+  <title>Bart Massey - About Inform 7 — 33 of 36</title>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
   <meta name="author" content="Bart Massey" />
-  <meta name="description" content="A page for the game Inform 7 Notes by Bart Massey." />
+  <meta name="description" content="A page for the game About Inform 7 by Bart Massey." />
   <link rel="stylesheet" href="style.css" type="text/css" media="all" />
 </head>
 
@@ -18,7 +18,7 @@
 
 <div class ="sourceintroduction">
 	<h1>
-		<span>Inform 7 Notes</span> <span class="pagination">— 33 of 47</span>
+		<span>About Inform 7</span> <span class="pagination">— 33 of 36</span>
 	</h1>
 	<h2>
 		<span>Bart Massey</span>
@@ -35,7 +35,7 @@
 </div>
 
 <div class = "source">
-<p class="indent0"><span class="heading">Section 4 - Ending the Game</span></p><p class="indent0"></p><p class="indent0">After going through the upper hatch: say &quot;<span class="quote">You climb out of the Demo Lab and into the Briefing Room. All that work for nothing!</span>&quot;; increment the score; now the player is in The Briefing Room.</p><p class="indent0"></p>
+<p class="indent0"><span class="heading">Section 3 - The Hatch Wheel System</span></p><p class="indent0"></p><p class="indent0">The hatch wheel is in the Airlock. &quot;<span class="quote">A small metal wheel protrudes from a shaft halfway up the wall opposite you.</span>&quot; It is fixed in place. The wheel can be either pointing upward or pointing downward. It is pointing downward. The description is &quot;<span class="quote">This is a rough metal wheel with four spokes affixed to the wall. It looks like some kind of control. There is a red mark painted on the wheel, currently at [</span><span class="substitution">mark placement</span><span class="quote">].</span>&quot;  To say mark placement: if the wheel is pointing upward, say &quot;<span class="quote">the top of the wheel</span>&quot;; otherwise say &quot;<span class="quote">the bottom of the wheel</span>&quot;.</p><p class="indent0"></p><p class="indent0">To decide whether the wheel is active: if the lower hatch is closed and the upper hatch is closed and the slot is loaded, decide yes; otherwise decide no. To decide whether the wheel is inactive: if the wheel is active, decide no; otherwise decide yes. Before turning the wheel, ignore the can't turn what's fixed in place rule. Instead of turning the wheel when the wheel is inactive: say &quot;<span class="quote">The wheel wiggles, but refuses to move.</span>&quot;. After turning the wheel, say &quot;<span class="quote">The wheel turns creakily through a half revolution. Dry, sterile-smelling air pours from the upper vents and flows out the lower vents for a moment, then stops. Eerie quiet resumes.</span>&quot; Carry out turning the wheel when the wheel is active and the wheel is pointing downward: now the lower hatch is locked; now the upper hatch is unlocked; now the wheel is pointing upward; rule succeeds. Carry out turning the wheel when the wheel is active and the wheel is pointing upward: now the lower hatch is unlocked; now the upper hatch is locked; now the wheel is pointing downward; rule succeeds.</p><p class="indent0"></p><p class="indent0">The slot is in the Airlock. &quot;<span class="quote">Next to the wheel is a small slot.</span>&quot; The description is &quot;<span class="quote">The slot is entirely nondescript. It is vertical: about the height and width of a silver dollar.</span>&quot; It is fixed in place. The slot can be either loaded or unloaded. It is unloaded. Loading it into is an action applying to two touchable objects. Carry out loading the zorkmid into the slot: say &quot;<span class="quote">The zorkmid vanishes into the slot with a metallic clink.</span>&quot;; remove the zorkmid from play; now the slot is loaded; rule succeeds. Carry out loading an object into the slot: say &quot;<span class="quote">You look more closely at the [</span><span class="substitution">noun</span><span class="quote">] and at the slot and change your mind.</span>&quot; Understand &quot;<span class="quote">put [</span><span class="substitution">thing</span><span class="quote">] in/into [</span><span class="substitution">slot</span><span class="quote">]</span>&quot; as loading it into. Understand &quot;<span class="quote">drop [</span><span class="substitution">thing</span><span class="quote">] in/into [</span><span class="substitution">slot</span><span class="quote">]</span>&quot;,  &quot;<span class="quote">insert [</span><span class="substitution">thing</span><span class="quote">] in/into [</span><span class="substitution">slot</span><span class="quote">]</span>&quot; and &quot;<span class="quote">load [</span><span class="substitution">thing</span><span class="quote">] in/into [</span><span class="substitution">slot</span><span class="quote">]</span>&quot; as loading it into.</p><p class="indent0"></p>
 </div>
 
 <div class ="notes">
