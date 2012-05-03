@@ -1,10 +1,12 @@
 "Inform 7 Notes" by "Bart Massey"
 
+[Copyright © 2012 Bart Massey]
+
+[Released under the Creative Commons Attribution 3.0 United States (CC BY 3.0) license. See http://creativecommons.org/licenses/by/3.0/us/ for license details.]
+
 Use authorial modesty.
 
 Include Basic Literacy by Bart Massey.
-
-[Released under the Creative Commons Attribution 3.0 United States (CC BY 3.0) license. See http://creativecommons.org/licenses/by/3.0/us/ for license details.]
 
 Volume - Setup
 
