@@ -1,4 +1,8 @@
-"About Inform 7" by "Bart Massey"
+"Inform 7 Notes" by "Bart Massey"
+
+Use authorial modesty.
+
+Include Basic Literacy by Bart Massey.
 
 [Released under the Creative Commons Attribution 3.0 United States (CC BY 3.0) license. See http://creativecommons.org/licenses/by/3.0/us/ for license details.]
 
@@ -16,41 +20,27 @@ Rule for deciding whether all includes scenery: it does not.
 
 The story headline is "A Metareflective Talk Environment".
 
-Book - Out Of World
+When play begins, say "You enter the Inform Virtual Institute, passing under the sign with the ivy-leaf logo. The security door locks behind you---you're here for the day..."
+
+After printing the banner text, say "[paragraph break]Copyright (c) 2012 Bart Massey[paragraph break]This text 'adventure' is both the 'slides' for my talks on Inform 7 and a couple of demo apps.[paragraph break]One demo app, a Nim player, is also included as an example in my extension Bitwise Operators by Bart Massey. The other demo app is a more traditional text adventure puzzle.[paragraph break]The Briefing Room uses a not-yet-complete 'books' extension I'm working on that provides fairly elaborate book behavior. To see the talk slides, say 'read book' and keep saying it until you're done. Say 'help' for further meta-information.[paragraph break]"
+
+The maximum score is 2.
+
+The player is in the Dingy Corridor.
+
+Book - Some Meta-Actions
 
 Helping is an action out of world. Carry out helping: say "For this help, say 'help'. For basic information, say 'version'. For acknowledgments, say 'acks'. For other help, I'm afraid you're out of luck." Understand "help" as helping.
 
 Acknowledging is an action out of world. Carry out acknowledging: say "Sources for this work include the Inform 7 documentation, [italic type]Inform 7 for Programmers,[roman type] the [italic type]Inform 7 Handbook,[roman type] Aaron Reed's book [italic type]Creating Interactive Fiction with Inform 7[roman type] and a whole bunch of other stuff scattered around the web.[paragraph break]My brother, Byron Massey (20 September 1967 – 11 October 2010), was the great player of games in our family, and I wish I could show him what I'm doing. I think he might think it was cool." Understand "acknowledgements" or "acknowledgments" or "acks" as acknowledging.
 
-When play begins, say "Copyright (c) 2012 Bart Massey[paragraph break]This text 'adventure' is both the 'slides' for my talk and a couple of demo apps. One demo app, a Nim player, is based on a graphical Nim player I wrote for the 128K Macintosh around 1982. It plays perfectly, but only plays as second player, so it is beatable. The other demo app is a more traditional text adventure puzzle.[paragraph break]The briefing itself uses a not-yet-complete 'books' extension I'm working on that provides fairly elaborate book behavior. To see the talk slides, say 'read book' and keep saying it until you're done. Say 'help' for further meta-information."
-
-The maximum score is 2.
-
 Book - The Briefing Room
 
-There is a room called The Briefing Room. "This wood-paneled study is adequately if indirectly lit by wall-mounted lamps along the walls. In the center of the room is a table, and on the table are several books. Open doorframes lead west and south. A restroom door lies to the east."
+There is a room called The Briefing Room. "This wood-paneled study is adequately if indirectly lit by wall-mounted lamps. In the center of the room is a table[if the number of books on the table is 1] with a book on it[otherwise if the number of books on the table is greater than 1], and on the table are several books[end if]. Open doorframes lead west and south. A restroom door lies to the east."
 
 The briefing table is fixed in place scenery in The Briefing Room. "This sturdy polished table of light mahogany has plenty of space to spread out."
 
 Volume - Books
-
-Book - Reading
-
-[XXX: This book is deliberately not book-specific. It is arguable that this should be split out into a separate extension and eventually rolled into the Standard Rules in some form. Having "read" be a synonym for "examine" is bizarre IMHO.]
-
-Reading is an action applying to one visible thing and requiring light.
-
-Every thing has a text called the read text. The read text is usually "".
-
-Understand "read [thing]" as reading.
-
-To say error (the thing read - a thing) has no read text (this is the say no read text error rule): say "[The thing read] has no text to read."
-
-Check an actor reading a thing (called the thing read) (this is the check reading a thing rule): if the read text of the thing read is empty, instead say error the thing read has no read text.
-
-To say the read text of (the thing read - a thing) (this is the say the read text rule): Say "[command clarification break][the read text of the thing read][command clarification break][paragraph break]".
-
-Carry out an actor reading a thing (called the thing read) (this is the read a thing rule): say the read text of the thing read.
 
 Book - Books and Book Parts
 
@@ -400,7 +390,7 @@ Chapter 2 - Testing and Debugging - Not for release
 
 Going unto is an action applying to one thing. Carry out going unto a room (called R) (this is the going unto a room rule): move the player to R. Before going unto a thing: ignore the basic accessibility rule. Carry out going unto a thing (called T) (this is the going unto a thing rule): move the player to the location of T. Understand "go unto [any room]" as going unto. Understand "go unto [any thing]" as going unto. Test go-unto with "go unto wheel / go unto nonexistent / go unto Demo Room".
 
-Test me with "test sign / test zorkmid / up / test airlock / test wheel".
+Test lab with "test sign / test zorkmid / up / test airlock / test wheel".
 
 Test sign with "take sign / read sign".
 
@@ -416,3 +406,157 @@ Chapter - The Restroom
 The restroom door is a scenery door. The restroom door is east of The Briefing Room and west of the Genderless Restroom. The description is "The restroom door bears the universal indication of both genders."
 
 The Genderless Restroom is a room. "It's a restroom. You've seen them before. Do you really need a detailed model of all the fixtures? If you [italic type]must[roman type] flush the imaginary toilet, imagine doing so now, and supply your own vision of the result. Go ahead, I'll wait.[paragraph break]The door is to the west."
+
+Volume - The Ontology Lab
+
+The Briefing Room Door is a scenery door. It is north of the Briefing Room.
+
+The Dingy Corridor is north of the Briefing Room Door. "This east-west corridor is dingy and unremarkable. The Briefing Room is through a door to the south. A west door leads to the Ontology Lab. The locked front door lies to the east."
+
+The Outside Door is a scenery door. It is east of the Dingy Corridor. It is closed and locked.
+
+The Lab Door is a scenery door. It is west  of the Dingy Corridor and east of the Ontology Lab. Understand "ontology lab door" as the Lab Door.
+
+The Ontology Lab is a room. "This well-lit room features a prominent [whiteboard] and a [steelcase desk]."
+
+The steelcase desk is fixed in place scenery in the Ontology Lab. The description is "A classic steelcase desk with four locked drawers." The printed name is "Steelcase desk".
+
+A drawer is a kind of container. It is openable and lockable. It is usually closed and locked. Three drawers are part of the steelcase desk. A drawer called the top drawer is part of the steelcase desk.
+
+The sturdy desk chair is an enterable supporter in the Ontology Lab. "A sturdy desk chair sits here." The description is "This chair looks like it would stand a lot of abuse. Good thing---there may be adventurers about."
+
+Book - The Ontology Lab Whiteboard
+
+The whiteboard is writable scenery in the Ontology Lab. The description is "A regulation-issue whiteboard with a metal tray.[if read text of the whiteboard is not empty] [the contents of the whiteboard][end if]". The read text is "SCRIBBLE ON ME". Understand "board" as the whiteboard. Understand "scribble [text] on [whiteboard]" as writing it on.
+
+A board state description is a kind of value. Board state descriptions are user scribbling, blank slate, or prof outline. The whiteboard has a board state description called the current board state. The current board state is usually blank slate. After erasing the whiteboard, now the current board state is blank slate. After writing on the whiteboard, now the current board state is user scribbling.
+
+To say the contents of the whiteboard: say "Scribbled on the whiteboard is:"; silently try reading the whiteboard.
+
+The metal tray is a supporter. It is part of the whiteboard. The description is "This narrow metal tray is built to support markers and erasers."
+
+A marker is a kind of writing tool. A marker cap is a kind of thing. The description of a marker cap is usually "This cap keeps the marker from drying up." A marker cap is part of every marker. Does the player mean doing something with the marker cap: it is unlikely. Instead of doing something other than examining with the marker cap: say "There is no need to fiddle with the marker cap."
+
+The black marker is a marker on the metal tray. The description is "This is as generic a whiteboard marker as you'll ever hope to find. It has a black cap."  
+
+Report writing it on (this is the detailed report writing rule): say "You take the cap off the marker, write on [the second noun], and replace the cap carefully." The detailed report writing rule is listed instead of the report writing rule in the report writing it on rulebook.
+
+An eraser is an erasing tool. The description is usually "A classic fuzzy whiteboard eraser, none too clean." On the metal tray is an eraser.
+
+Test whiteboard with "read whiteboard / erase whiteboard / x whiteboard".
+
+Book - Professor Doppelgänger
+
+A man called Professor Doppelgänger is on the sturdy desk chair. The description is "Even after looking twice, this guy looks a lot like a professor you know named Bart Massey." Understand "Prof/Professor/Dr/--" as "[professional title]". Understand "Doppelgänger/Doppelganger" as "[Doppelganger name]". Understand "[professional title] [Doppelganger name]" or "[professional title]" or "[Doppelganger name]" as Professor  Doppelgänger.
+
+Mentioning is an action applying to one topic. Understand "mention [text]" as mentioning.
+
+Check mentioning a topic when Professor Doppelgänger is not visible: instead say "That sounds like something Professor Doppelgänger might be interested in. Too bad he's not around."
+
+Carry out mentioning a topic listed in the Table of Lecture Subjects: abide by the handwaving entry; rule succeeds.
+
+Carry out mentioning a topic: instead say "The Prof seems uninterested in [the topic understood]."
+
+Table of Lecture Subjects
+topic					handwaving
+topic					rule
+"outline"				lecture outline rule
+"cyc/lenat"			show cyc picture rule
+"actions"				show action diagram rule
+"handwave/handwaving"	handwave rule
+
+Chapter - Professorial Actions
+
+[This is essentially a grammar trick to get the Prof's name at the start of a paragraph; might as well do some characterization while we're at it. The alternative would be to handle the pronouns better, which wouldn't be hard.]
+To say prof shtick: say "Prof Doppelgänger [one of]yawns[or]rubs his eyes[or]sighs[or]searches his pockets for chocolate[or]grimaces[or]looks bored[or]looks around the room[or]stares intently[or]gets ready to lecture[or]scratches his head[or]blinks[or]stares into the distance[or]drums his fingers on his leg[or]looks at the ceiling for a moment[at random]. [run paragraph on]".
+
+To stand the professor:
+	if Professor Doppelgänger is on the sturdy desk chair:
+		say "Prof Doppelgänger rises to his feet.[run paragraph on]";
+		silently try Professor Doppelgänger exiting;
+	otherwise:
+		say prof shtick.
+
+To seat the professor:
+	if Professor Doppelgänger is on the sturdy desk chair:
+		say prof shtick;
+	otherwise:
+		silently try Professor Doppelgänger entering the sturdy desk chair;
+		if Professor Doppelgänger is on the sturdy desk chair:
+			say "Prof Doppelgänger sits. [run paragraph on]";
+		otherwise:
+			say "Prof Doppelgänger looks as though he'd like to sit down; he seems a bit cranky about not being able to."
+
+To make the professor clear the whiteboard:
+	if the read text of the whiteboard is not "":
+		say "[run paragraph on]He wipes the board clean with his sleeve.[run paragraph on]"; 
+		now the read text of the whiteboard is "".
+
+To make the professor write (T - a text): make the professor clear the whiteboard; say "He pulls a marker from his pocket and scribbles on the board for a moment:"; now the read text of the whiteboard is T; silently try reading the whiteboard.
+
+A picture is a kind of thing. It has a text called the caption.
+
+Section - Pictures (for Glulx only)
+
+A picture has a figure name called the image.
+
+To decide whether graphics are available: (- glk_gestalt(gestalt_Graphics, 0) && glk_gestalt(gestalt_DrawImage, 3) -).
+
+Instead of examining a picture (called the picture examined) when graphics are available: display the image of the picture examined; say the caption of the picture examined.
+
+Section - Textual pictures
+
+Instead of examining a picture (called the picture examined): say "[if the picture examined is undescribed]This appears to be a picture of some sort.[otherwise][description of the picture examined][end if] The caption is '[caption of the picture examined]'."
+
+Section - Picture Delivery
+
+To make the professor deliver (X - a picture):
+	if X is not in the top drawer:
+		say "Prof Doppelgänger says 'You might want to look at that [X] I gave you.'";
+	otherwise:
+		seat the professor;
+		silently try Professor Doppelgänger unlocking the top drawer with the desk key;
+		silently try Professor Doppelgänger opening the top drawer;
+		if the top drawer is closed:
+			say "He tries to unlock the top drawer of the desk with a key he takes from his pocket, but finds he cannot."; 
+		otherwise:
+			say "He unlocks the top drawer of the desk with a key he takes from his pocket[run paragraph on]";
+			silently try Professor Doppelgänger taking X;
+			if Professor Doppelgänger does not carry X:
+				say " and looks for a picture, but fails to find it.";
+			otherwise:
+				say ", removes a picture from the drawer[run paragraph on]";
+				silently try Professor Doppelgänger closing the top drawer;
+				silently try Professor Doppelgänger locking the top drawer with the desk key;
+				now the player carries X;
+				say ", relocks it and hands the picture to you. He says 'This is [a X].'".
+
+Chapter - Lecture Outline
+
+This is the lecture outline rule: if the current board state of the whiteboard is prof outline, instead say "Prof Doppelgänger says 'You might want to review the outline on the board.'"; stand the professor; say "He says '[one of]Hmm... Here's[or]Like I said before, here's[stopping] what I'd talk about.' He walks to the whiteboard.[run paragraph on]"; make the professor write "Things to think about[paragraph break]* Upper ontologies[paragraph break]* Relation descriptions[paragraph break]* Action descriptions"; now the current board state of the whiteboard is prof outline.
+
+Chapter - Show Pictures
+
+The desk key unlocks the top drawer. Professor Doppelgänger carries it.
+
+Every picture is in the top drawer.
+
+The picture of Lenat is a picture. The caption is "Computer Scientist Doug Lenat, founder of the Cyc Project". This is the show cyc picture rule: make the professor deliver the picture of Lenat.
+
+The diagram of Inform 7 actions is a picture. The caption is "Structure of rulebooks for action processing". This is the show action diagram rule: make the professor deliver the diagram of Inform 7 actions.
+
+Section - The Pictures (for Glulx only)
+
+Figure of Lenat is the file "Lenat.jpg". The image of the picture of Lenat is the Figure of Lenat.
+
+Figure of Actions is the file "Actions.png". The image of the diagram of Inform 7 actions is the Figure of Actions.
+
+Section - The Pictures
+
+The description of the picture of Lenat is "This grainy color photograph shows a man standing in front of a board filled with equations. He is a thickset and middle-aged, with short black hair."
+
+The description of the diagram of Inform 7 actions is "This diagram shows how an action starts by consulting its 'before' rulebook, then its 'check' rulebook, then its 'carry out' rulebook, then its 'report' rulebook, then its 'after' rulebook."
+
+Chapter - Handwave
+
+This is the handwave rule: stand the professor; say " Then he waves his hands frantically, gesticulating wildly in an attempt to convince you of the correctness of his views."

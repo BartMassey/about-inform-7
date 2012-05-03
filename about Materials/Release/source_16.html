@@ -1,10 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-  <title>Bart Massey - About Inform 7 — 18 of 36</title>
+  <title>Bart Massey - Inform 7 Notes — 18 of 47</title>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
   <meta name="author" content="Bart Massey" />
-  <meta name="description" content="A page for the game About Inform 7 by Bart Massey." />
+  <meta name="description" content="A page for the game Inform 7 Notes by Bart Massey." />
   <link rel="stylesheet" href="style.css" type="text/css" media="all" />
 </head>
 
@@ -18,7 +18,7 @@
 
 <div class ="sourceintroduction">
 	<h1>
-		<span>About Inform 7</span> <span class="pagination">— 18 of 36</span>
+		<span>Inform 7 Notes</span> <span class="pagination">— 18 of 47</span>
 	</h1>
 	<h2>
 		<span>Bart Massey</span>
@@ -35,7 +35,7 @@
 </div>
 
 <div class = "source">
-<p class="indent0"><span class="heading">Book - Bookmarks</span></p><p class="indent0"></p><p class="indent0"><span class="comment">[XXX: We put bookmarks in their own &quot;Book&quot; (doh) preparatory to moving them to a separate extension altogether.]</span></p><p class="indent0"></p><p class="indent0">A bookmark is a kind of thing. A bookmark has a number called the bookmarked page.</p><p class="indent0"></p><p class="indent0"><span class="comment">[XXX: By default, it's nice to be able to see the bookmark hanging out of a book. Of course, if you allow putting other things in books you may want to do something more sophisticated. Or you may just want to force people to open books to see the bookmarks...]</span></p><p class="indent0"></p><p class="indent0">A book is usually transparent.</p><p class="indent0"></p>
+<p class="indent0"><span class="heading">Part - Bookmarking Actions</span></p><p class="indent0"></p><p class="indent0">Before an actor inserting a bookmark into a closed book (called the book inserted into) (this is the open closed books for bookmarking rule): implicitly open the book inserted into.</p><p class="indent0"></p><p class="indent0">Check an actor inserting a thing (called the thing inserted) into a book (called the book inserted into) (this is the check inserting a thing into a book rule): If the thing inserted is not a bookmark, instead say error inserting the thing inserted that is not a bookmark into the book inserted into; if the page count of the book inserted into is 0, instead say error inserting the thing inserted into the book inserted into that has no pages. </p><p class="indent0"></p><p class="indent0">To say error inserting (the thing inserted - a thing) into (the book inserted into - a book) that has no pages (this is the say inserting into a book with no pages error rule): say &quot;<span class="quote">[</span><span class="substitution">The thing inserted</span><span class="quote">] has no useful place in [</span><span class="substitution">the book inserted into</span><span class="quote">].</span>&quot;</p><p class="indent0"></p><p class="indent0">To say error inserting (the thing inserted - a thing) that is not a bookmark into (the book inserted into - a book) (this is the say inserting a non-bookmark into a book error rule): say &quot;<span class="quote">Putting [</span><span class="substitution">the thing inserted</span><span class="quote">] into [</span><span class="substitution">the book inserted into</span><span class="quote">] seems pointless.</span>&quot;</p><p class="indent0"></p><p class="indent0">After an actor inserting a bookmark (called the bookmark inserted) into a book (called the book inserted into) (this is the bookmark a book rule): now the bookmarked page of the bookmark inserted is the current page of the book inserted into; say report that the bookmark inserted is in the book inserted into.</p><p class="indent0"></p><p class="indent0">To say report that (the bookmark inserted - a bookmark) is in (the book inserted into - a book) (this is the say inserted a bookmark into a book report rule): say &quot;<span class="quote">[</span><span class="substitution">The bookmark inserted</span><span class="quote">] falls gently into [</span><span class="substitution">the book inserted into</span><span class="quote">].</span>&quot;</p><p class="indent0"></p><p class="indent0">Understand &quot;<span class="quote">put [</span><span class="substitution">bookmark</span><span class="quote">] at/in [</span><span class="substitution">page number</span><span class="quote">]</span>&quot; as a mistake (&quot;<span class="quote">To bookmark a particular page of some book, you need to open the book to that page, then insert the bookmark. Try OPEN (book) TO PAGE (page), INSERT (bookmark) INTO IT.</span>&quot;).</p><p class="indent0"></p>
 </div>
 
 <div class ="notes">

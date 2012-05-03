@@ -500,11 +500,17 @@ Section - Pictures (for Glulx only)
 
 A picture has a figure name called the image.
 
-Instead of examining a picture (called the picture examined): display the image of the picture examined; say the caption of the picture examined.
+To decide whether graphics are available: (- glk_gestalt(gestalt_Graphics, 0) && glk_gestalt(gestalt_DrawImage, 3) -).
+
+Instead of examining a picture (called the picture examined) when graphics are available: display the image of the picture examined; say the caption of the picture examined.
 
 Section - Pictures (for Z-machine only)
 
-Instead of examining a picture (called the picture examined): say "[description of the picture examined] The caption is '[caption of the picture examined]'."
+To decide whether graphics are available: no.
+
+Section - Textual pictures
+
+Instead of examining a picture (called the picture examined): if graphics are available, say "Hmm... I probably should have shown you the picture. Sorry."; say "[if the picture examined is undescribed]This appears to be a picture of some sort.[otherwise][description of the picture examined][end if] The caption is '[caption of the picture examined]'."
 
 Section - Picture Delivery
 
@@ -549,9 +555,11 @@ Figure of Lenat is the file "Lenat.jpg". The image of the picture of Lenat is th
 
 Figure of Actions is the file "Actions.png". The image of the diagram of Inform 7 actions is the Figure of Actions.
 
-Section - The Pictures (for Z-machine only)
+Section - The Pictures
 
 The description of the picture of Lenat is "This grainy color photograph shows a man standing in front of a board filled with equations. He is a thickset and middle-aged, with short black hair."
+
+Test picture with "w / mention cyc / x picture".
 
 The description of the diagram of Inform 7 actions is "This diagram shows how an action starts by consulting its 'before' rulebook, then its 'check' rulebook, then its 'carry out' rulebook, then its 'report' rulebook, then its 'after' rulebook."
 
