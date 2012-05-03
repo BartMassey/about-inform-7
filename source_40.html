@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Bart Massey - Inform 7 Notes — 42 of 47</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="author" content="Bart Massey" />
+  <meta name="description" content="A page for the game Inform 7 Notes by Bart Massey." />
+  <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+</head>
+
+<body>
+
+<div class = "container">
+
+<div class ="sourcecoverimage">
+	<span><a href="Cover.png"><img src="Small Cover.png" border="1" /></a></span>
+</div>
+
+<div class ="sourceintroduction">
+	<h1>
+		<span>Inform 7 Notes</span> <span class="pagination">— 42 of 47</span>
+	</h1>
+	<h2>
+		<span>Bart Massey</span>
+	</h2>
+	<div class ="sourcebibliography">
+		<span>Release 1</span>
+	</div>
+</div>
+
+<div class = "links">
+<ul>
+<li><a href="index.html">Home page</a></li><li><a href="source.html">Beginning</a></li><li><a href="source_39.html">Previous</a></li><li><a href="source_41.html">Next</a></li>
+</ul>
+</div>
+
+<div class = "source">
+<p class="indent0"><span class="heading">Section - Picture Delivery</span></p><p class="indent0"></p><p class="indent0">To make the professor deliver (X - a picture):</p><p class="indent1">if X is not in the top drawer:</p><p class="indent2">say &quot;<span class="quote">Prof Doppelgänger says 'You might want to look at that [</span><span class="substitution">X</span><span class="quote">] I gave you.'</span>&quot;;</p><p class="indent1">otherwise:</p><p class="indent2">seat the professor;</p><p class="indent2">silently try Professor Doppelgänger unlocking the top drawer with the desk key;</p><p class="indent2">silently try Professor Doppelgänger opening the top drawer;</p><p class="indent2">if the top drawer is closed:</p><p class="indent3">say &quot;<span class="quote">He tries to unlock the top drawer of the desk with a key he takes from his pocket, but finds he cannot.</span>&quot;; </p><p class="indent2">otherwise:</p><p class="indent3">say &quot;<span class="quote">He unlocks the top drawer of the desk with a key he takes from his pocket[</span><span class="substitution">run paragraph on</span><span class="quote">]</span>&quot;;</p><p class="indent3">silently try Professor Doppelgänger taking X;</p><p class="indent3">if Professor Doppelgänger does not carry X:</p><p class="indent4">say &quot;<span class="quote"> and looks for a picture, but fails to find it.</span>&quot;;</p><p class="indent3">otherwise:</p><p class="indent4">say &quot;<span class="quote">, removes a picture from the drawer[</span><span class="substitution">run paragraph on</span><span class="quote">]</span>&quot;;</p><p class="indent4">silently try Professor Doppelgänger closing the top drawer;</p><p class="indent4">silently try Professor Doppelgänger locking the top drawer with the desk key;</p><p class="indent4">now the player carries X;</p><p class="indent4">say &quot;<span class="quote">, relocks it and hands the picture to you. He says 'This is [</span><span class="substitution">a X</span><span class="quote">].'</span>&quot;.</p><p class="indent0"></p>
+</div>
+
+<div class ="notes">
+
+</div>
+
+</div>
+
+</body>
+
+</html>

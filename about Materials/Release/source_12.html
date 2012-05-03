@@ -1,10 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-  <title>Bart Massey - About Inform 7 — 14 of 36</title>
+  <title>Bart Massey - Inform 7 Notes — 14 of 47</title>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
   <meta name="author" content="Bart Massey" />
-  <meta name="description" content="A page for the game About Inform 7 by Bart Massey." />
+  <meta name="description" content="A page for the game Inform 7 Notes by Bart Massey." />
   <link rel="stylesheet" href="style.css" type="text/css" media="all" />
 </head>
 
@@ -18,7 +18,7 @@
 
 <div class ="sourceintroduction">
 	<h1>
-		<span>About Inform 7</span> <span class="pagination">— 14 of 36</span>
+		<span>Inform 7 Notes</span> <span class="pagination">— 14 of 47</span>
 	</h1>
 	<h2>
 		<span>Bart Massey</span>
@@ -35,7 +35,7 @@
 </div>
 
 <div class = "source">
-<p class="indent0"><span class="heading">Section - Book Reading</span></p><p class="indent0"></p><p class="indent0">Before an actor reading a closed book (called the book read) (this is the open closed book for reading rule): implicitly open the book read.</p><p class="indent0"></p><p class="indent0"><span class="comment">[XXX: This next bit awkwardly overrides checking reading things in general to handle the special case of books. There must be a better way.]</span></p><p class="indent0"></p><p class="indent0">The check reading a thing including books rule is listed instead of the check reading a thing rule in the check reading rulebook.</p><p class="indent0"></p><p class="indent0">Check an actor reading a book (called the book read) (this is the check reading a book rule): if the book read is closed, instead say error the book read is stuck closed; if the page count of the book read is 0 and the read text of the book read is empty, instead say error the book read has no content.</p><p class="indent0"></p><p class="indent0">Check an actor reading a thing (called the thing read) (this is the check reading a thing including books rule): if the thing read is not a book, abide by the check reading a thing rule.</p><p class="indent0"></p><p class="indent0">To say error (the book read - a book) has no content (this is the say reading an no-content book error rule): say &quot;<span class="quote">The contents of [</span><span class="substitution">the book read</span><span class="quote">] are uninteresting.</span>&quot;</p><p class="indent0"></p><p class="indent0">To say error (the book read - a book) is stuck closed (this is the say book stuck closed error rule): say &quot;<span class="quote">[</span><span class="substitution">The book read</span><span class="quote">] seems to be stuck closed, and cannot be read.</span>&quot; <span class="comment">[XXX: It would take some finagling for this rule to be reached. It's just defensive programming.]</span></p><p class="indent0"></p><p class="indent0">Carry out an actor reading a book (called the book read) (this is the read a book rule): if the page count of the book read is greater than 0, say a page of the book read; otherwise say the read text of the book read; rule succeeds.</p><p class="indent0"></p><p class="indent0">After an actor reading an open book (called the book read) (this is the reading the last page of a book rule): let P be the current page of the book read; let N be the page count of the book read; if N is greater than 1 and P is greater than N, implicitly close the book read; if P is greater than N, now P is 1.</p><p class="indent0"></p>
+<p class="indent0"><span class="heading">Part - Bookcovers</span></p><p class="indent0"></p><p class="indent0">A bookcover is a kind of thing. The description is usually &quot;<span class="quote">[</span><span class="substitution">The item described</span><span class="quote">] is uninterestingly blank.</span>&quot;</p><p class="indent0"></p><p class="indent0">To decide what book is the book bound by (the binding bookcover - a bookcover) (this is the find the book bound by a bookcover rule): decide on the object that the binding bookcover relates to by the incorporation relation. <span class="comment">[XXX: &quot;decide on the book that the binding bookcover relates to by the incorporation relation&quot; hits Inform 7 bug 729 in version 6G60, as do several similar constructions; see bug 829.]</span></p><p class="indent0"></p><p class="indent0">A title-bearing bookcover is a kind of bookcover. The description is usually &quot;<span class="quote">[</span><span class="substitution">The default bookcover description of the item described</span><span class="quote">][</span><span class="substitution">run paragraph on</span><span class="quote">]</span>&quot;.</p><p class="indent0"></p><p class="indent0">To say the default bookcover description of (the bookcover described - a bookcover) (this is the say the default bookcover description rule): if the book bound by the bookcover described is titled, say the titled description of the bookcover described; otherwise say the untitled description of the bookcover described.</p><p class="indent0"></p><p class="indent0">To say the titled description of (the bookcover described - a bookcover) (this is the say the titled description of a bookcover rule): say &quot;<span class="quote">[</span><span class="substitution">The bookcover described</span><span class="quote">] is nondescript, merely indicating the title '[</span><span class="substitution">the title of the book bound by the bookcover described</span><span class="quote">]'.</span>&quot;</p><p class="indent0"></p><p class="indent0">To say the untitled description of (the bookcover described - a bookcover) (this is the say the untitled description of a bookcover rule): say &quot;<span class="quote">[</span><span class="substitution">The bookcover described</span><span class="quote">] bears no title.</span>&quot;</p><p class="indent0"></p>
 </div>
 
 <div class ="notes">

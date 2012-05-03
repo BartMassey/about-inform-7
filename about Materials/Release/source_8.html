@@ -1,10 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-  <title>Bart Massey - About Inform 7 — 10 of 36</title>
+  <title>Bart Massey - Inform 7 Notes — 10 of 47</title>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
   <meta name="author" content="Bart Massey" />
-  <meta name="description" content="A page for the game About Inform 7 by Bart Massey." />
+  <meta name="description" content="A page for the game Inform 7 Notes by Bart Massey." />
   <link rel="stylesheet" href="style.css" type="text/css" media="all" />
 </head>
 
@@ -18,7 +18,7 @@
 
 <div class ="sourceintroduction">
 	<h1>
-		<span>About Inform 7</span> <span class="pagination">— 10 of 36</span>
+		<span>Inform 7 Notes</span> <span class="pagination">— 10 of 47</span>
 	</h1>
 	<h2>
 		<span>Bart Massey</span>
@@ -35,7 +35,7 @@
 </div>
 
 <div class = "source">
-<p class="indent0"><span class="heading">Chapter - Page Functions</span></p><p class="indent0"></p><p class="indent0">To decide what text is the current page text of (the book read - a book) (this is the decide the current page text rule): let M be the manuscript of the book read; let N be the current page of the book read; decide on the Page Text in row N of M.</p><p class="indent0"></p><p class="indent0">To decide which number is the page count of (the book in question - a book) (this is the decide the page count of a book rule): Let M be the manuscript of the book in question; if M is not empty, decide on the number of rows in M; otherwise decide on 0.</p><p class="indent0"></p><p class="indent0">To say a page of (the book read - a book) (this is the say a page of a book rule): Let N be the page count of the book read; if N is greater than 1, say the current page number clarification of the book read; say the current page text of the book read; increment the current page of the book read.</p><p class="indent0"></p><p class="indent0">To say the current page number clarification of (the book read - a book) (this is the say the current page number clarification rule): say &quot;<span class="quote">(page [</span><span class="substitution">current page of the book read</span><span class="quote">])[</span><span class="substitution">line break</span><span class="quote">]</span>&quot;.</p><p class="indent0"></p><p class="indent0">To say the current page text of (the book read - a book) (this is the say the current page text rule): say &quot;<span class="quote">[</span><span class="substitution">line break</span><span class="quote">][</span><span class="substitution">current page text of the book read</span><span class="quote">][</span><span class="substitution">paragraph break</span><span class="quote">]</span>&quot;.</p><p class="indent0"></p>
+<p class="indent0"><span class="heading">Chapter - Turning To</span></p><p class="indent0"></p><p class="indent0">Turning it to is an action applying to one thing and one value and requiring light. Understand &quot;<span class="quote">page [</span><span class="substitution">number</span><span class="quote">]</span>&quot; or &quot;<span class="quote">[</span><span class="substitution">number</span><span class="quote">]</span>&quot; as &quot;<span class="quote">[</span><span class="substitution">page number</span><span class="quote">]</span>&quot;. Understand &quot;<span class="quote">turn [</span><span class="substitution">book</span><span class="quote">] to [</span><span class="substitution">page number</span><span class="quote">]</span>&quot; or &quot;<span class="quote">open [</span><span class="substitution">book</span><span class="quote">] to [</span><span class="substitution">page number</span><span class="quote">]</span>&quot;  as turning it to. Understand &quot;<span class="quote">turn to [</span><span class="substitution">page number</span><span class="quote">] in [</span><span class="substitution">book</span><span class="quote">]</span>&quot; or &quot;<span class="quote">open to [</span><span class="substitution">page number</span><span class="quote">] in [</span><span class="substitution">book</span><span class="quote">]</span>&quot; as turning it to (with nouns reversed).</p><p class="indent0"></p><p class="indent0">Before an actor turning a closed book (called the book turned) to a number (this is the implicitly open a closed book for turning to rule): implicitly open the book turned.</p><p class="indent0"></p><p class="indent0">Check an actor turning a book (called the book turned) to a number (called the target page) (this is the check turning to a valid page rule): If the target page is less than 1 or the target page is greater than the page count of the book turned, instead say error the target page does not exist in the book turned.</p><p class="indent0"></p><p class="indent0">To say error (the target page - a number) does not exist in (the book turned - a book) (this is the say nonexistent target page error rule): say &quot;<span class="quote">Page [</span><span class="substitution">the target page</span><span class="quote">] does not exist in [</span><span class="substitution">the book turned</span><span class="quote">].</span>&quot;</p><p class="indent0"></p><p class="indent0">Carry out an actor turning a book (called the book turned) to a number (called the page number) (this is the turn a book to a page rule): now the current page of the book turned is the page number.</p><p class="indent0"></p>
 </div>
 
 <div class ="notes">
