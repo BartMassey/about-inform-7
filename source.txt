@@ -1,10 +1,12 @@
 "Inform 7 Notes" by "Bart Massey"
 
+[Copyright © 2012 Bart Massey]
+
+[Released under the Creative Commons Attribution 3.0 United States (CC BY 3.0) license. See http://creativecommons.org/licenses/by/3.0/us/ for license details.]
+
 Use authorial modesty.
 
 Include Basic Literacy by Bart Massey.
-
-[Released under the Creative Commons Attribution 3.0 United States (CC BY 3.0) license. See http://creativecommons.org/licenses/by/3.0/us/ for license details.]
 
 Volume - Setup
 
@@ -407,7 +409,7 @@ The restroom door is a scenery door. The restroom door is east of The Briefing R
 
 The Genderless Restroom is a room. "It's a restroom. You've seen them before. Do you really need a detailed model of all the fixtures? If you [italic type]must[roman type] flush the imaginary toilet, imagine doing so now, and supply your own vision of the result. Go ahead, I'll wait.[paragraph break]The door is to the west."
 
-Volume - The Ontology Lab
+Volume - The Entryway
 
 The Briefing Room Door is a scenery door. It is north of the Briefing Room.
 
@@ -417,13 +419,15 @@ The Outside Door is a scenery door. It is east of the Dingy Corridor. It is clos
 
 The Lab Door is a scenery door. It is west  of the Dingy Corridor and east of the Ontology Lab. Understand "ontology lab door" as the Lab Door.
 
+Volume - The Ontology Lab
+
 The Ontology Lab is a room. "This well-lit room features a prominent [whiteboard] and a [steelcase desk]."
 
 The steelcase desk is fixed in place scenery in the Ontology Lab. The description is "A classic steelcase desk with four locked drawers." The printed name is "Steelcase desk".
 
 A drawer is a kind of container. It is openable and lockable. It is usually closed and locked. Three drawers are part of the steelcase desk. A drawer called the top drawer is part of the steelcase desk.
 
-The sturdy desk chair is an enterable supporter in the Ontology Lab. "A sturdy desk chair sits here." The description is "This chair looks like it would stand a lot of abuse. Good thing---there may be adventurers about."
+The sturdy desk chair is a portable enterable supporter in the Ontology Lab. "A sturdy desk chair sits here." The description is "This chair looks like it would stand a lot of abuse. Good thing---there may be adventurers about."
 
 Book - The Ontology Lab Whiteboard
 
@@ -455,12 +459,18 @@ Check mentioning a topic when Professor Doppelgänger is not visible: instead sa
 
 Carry out mentioning a topic listed in the Table of Lecture Subjects: abide by the handwaving entry; rule succeeds.
 
+Understand "ontology/ontologies" as "[ontol]".
+
 Carry out mentioning a topic: instead say "The Prof seems uninterested in [the topic understood]."
 
 Table of Lecture Subjects
 topic					handwaving
 topic					rule
 "outline"				lecture outline rule
+"[ontol]"				lecture about ontology rule
+"upper/-- [ontol]"		lecture about upper ontology rule
+"relations-actions"		lecture about relations-actions rule
+"declarative"			lecture about declarative rule
 "cyc/lenat"			show cyc picture rule
 "actions"				show action diagram rule
 "handwave/handwaving"	handwave rule
@@ -504,9 +514,15 @@ To decide whether graphics are available: (- glk_gestalt(gestalt_Graphics, 0) &&
 
 Instead of examining a picture (called the picture examined) when graphics are available: display the image of the picture examined; say the caption of the picture examined.
 
+Section - Pictures (for Z-machine only)
+
+[Yes, Z-machine 6 has graphics, but I don't want to figure them out right now; they don't seem to particularly be supported by Inform 7.]
+
+To decide whether graphics are available: no.
+
 Section - Textual pictures
 
-Instead of examining a picture (called the picture examined): say "[if the picture examined is undescribed]This appears to be a picture of some sort.[otherwise][description of the picture examined][end if] The caption is '[caption of the picture examined]'."
+Instead of examining a picture (called the picture examined): if graphics are available, say "[debug]Hmm... I probably should have shown you the picture. Sorry. [end debug]"; say "[if the picture examined is undescribed]This appears to be a picture of some sort. [otherwise][description of the picture examined] [end if]The caption is '[caption of the picture examined]'."
 
 Section - Picture Delivery
 
@@ -531,9 +547,37 @@ To make the professor deliver (X - a picture):
 				now the player carries X;
 				say ", relocks it and hands the picture to you. He says 'This is [a X].'".
 
-Chapter - Lecture Outline
+Chapter - Lecture
 
-This is the lecture outline rule: if the current board state of the whiteboard is prof outline, instead say "Prof Doppelgänger says 'You might want to review the outline on the board.'"; stand the professor; say "He says '[one of]Hmm... Here's[or]Like I said before, here's[stopping] what I'd talk about.' He walks to the whiteboard.[run paragraph on]"; make the professor write "Things to think about[paragraph break]* Upper ontologies[paragraph break]* Relation descriptions[paragraph break]* Action descriptions"; now the current board state of the whiteboard is prof outline.
+This is the lecture outline rule: if the current board state of the whiteboard is prof outline, instead say "Prof Doppelgänger says 'You might want to review the outline on the board.'"; stand the professor; say "He says '[one of]Hmm... Here's[or]Like I said before, here's[stopping] what I'd talk about.' He walks to the whiteboard.[run paragraph on]"; make the professor write "Things to think about
+
+* Ontologies
+
+* Upper ontologies
+
+* Relation and action descriptions
+
+* Declarative representations"; now the current board state of the whiteboard is prof outline.
+
+To lecture saying (lecture text - a text): if the current board state of the whiteboard is not prof outline, consider the lecture outline rule; say "(Prof Doppelgänger starts to lecture.)[bold type][paragraph break][lecture text][roman type]".
+
+This is the lecture about ontology rule: lecture saying "In computer science, an ontology is a declarative description of a system useful for reasoning about that system.
+
+According to Tom Gruber 'An ontology is a specification of a conceptualization.' He notes that 'An ontology specifies a vocabulary with which to make assertions, which may be inputs or outputs of knowledge agents (such as a software program).  As an interface specification, the ontology provides a language for communicating with the agent.  An agent supporting this interface is not required to use the terms of the ontology as an internal encoding of its knowledge. Nonetheless, the definitions and formal constraints of the ontology do put restrictions on what can be meaningfully stated in this language.'"
+
+This is the lecture about upper ontology rule: lecture saying "An upper ontology is generic rules used to build other ontologies. Inform 7 is either an upper ontology or an ontology for writing text adventures; it's kind of hard to tell.
+
+One can easily imagine reimplementing or extending Inform 7 to work (well) outside the domain of text adventures."
+
+This is the lecture about relations-actions rule: lecture saying "Early ontologies described systems like naïve physics in which action (system change) plays an important role. The recent trend is in the other direction: describing passive systems in terms of simple, often binary relations.
+
+OWL/RDF and Protege are capable description languages, but they do not have any particular support for active systems. One can specify relations that imply actions (reification), but it's all kind of awkward and inexpressive.
+
+Mark Heller says 'modeling time, or action, as would be found in describing the interrelationships between objects was difficult. For example, how a mob interacts with a room by walking or jumping up and down was something that felt unintuitive in the inheritance hierarchy.'"
+
+This is the lecture about declarative rule: lecture saying "There's a fine line between a semantic description of action and a computer program (c.f. Nimrod). It is interesting to consider in what sense Inform 7 is declarative.
+
+Arguably, Inform 7 is as declarative as Cyc's CycL. I7 is a much more expressive language than CycL. However, its encoding of procedural knowledge raises some important questions about the ontology enterprise."
 
 Chapter - Show Pictures
 
@@ -555,8 +599,36 @@ Section - The Pictures
 
 The description of the picture of Lenat is "This grainy color photograph shows a man standing in front of a board filled with equations. He is a thickset and middle-aged, with short black hair."
 
+Test picture with "w / mention cyc / x picture".
+
 The description of the diagram of Inform 7 actions is "This diagram shows how an action starts by consulting its 'before' rulebook, then its 'check' rulebook, then its 'carry out' rulebook, then its 'report' rulebook, then its 'after' rulebook."
 
 Chapter - Handwave
 
 This is the handwave rule: stand the professor; say " Then he waves his hands frantically, gesticulating wildly in an attempt to convince you of the correctness of his views."
+
+Chapter - Talk Notes
+
+To say **: say "     *".
+
+Some talk notes are on the Steelcase desk. The description is "This appears to be notes for an Inform 7 talk." The read text is "If you are reading these notes, perhaps you're giving a talk entitled [italic type]Understand 'Inform 7' as an Ontological Description Language[roman type]. If so, here's how you want to proceed:
+
+* Describe Heller's thesis
+
+* Describe Cyc
+
+* Explain about Inform 7
+
+[**] Show off the talk environment
+
+[**] Show off the source code
+
+[**] Look at the running example
+
+* Mention outline
+
+* Don't forget the illustrations:
+
+[**] Mention cyc
+
+[**] Mention actions"
