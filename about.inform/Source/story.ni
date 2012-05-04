@@ -409,7 +409,7 @@ The restroom door is a scenery door. The restroom door is east of The Briefing R
 
 The Genderless Restroom is a room. "It's a restroom. You've seen them before. Do you really need a detailed model of all the fixtures? If you [italic type]must[roman type] flush the imaginary toilet, imagine doing so now, and supply your own vision of the result. Go ahead, I'll wait.[paragraph break]The door is to the west."
 
-Volume - The Ontology Lab
+Volume - The Entryway
 
 The Briefing Room Door is a scenery door. It is north of the Briefing Room.
 
@@ -419,13 +419,15 @@ The Outside Door is a scenery door. It is east of the Dingy Corridor. It is clos
 
 The Lab Door is a scenery door. It is west  of the Dingy Corridor and east of the Ontology Lab. Understand "ontology lab door" as the Lab Door.
 
+Volume - The Ontology Lab
+
 The Ontology Lab is a room. "This well-lit room features a prominent [whiteboard] and a [steelcase desk]."
 
 The steelcase desk is fixed in place scenery in the Ontology Lab. The description is "A classic steelcase desk with four locked drawers." The printed name is "Steelcase desk".
 
 A drawer is a kind of container. It is openable and lockable. It is usually closed and locked. Three drawers are part of the steelcase desk. A drawer called the top drawer is part of the steelcase desk.
 
-The sturdy desk chair is an enterable supporter in the Ontology Lab. "A sturdy desk chair sits here." The description is "This chair looks like it would stand a lot of abuse. Good thing---there may be adventurers about."
+The sturdy desk chair is a portable enterable supporter in the Ontology Lab. "A sturdy desk chair sits here." The description is "This chair looks like it would stand a lot of abuse. Good thing---there may be adventurers about."
 
 Book - The Ontology Lab Whiteboard
 
@@ -569,7 +571,9 @@ One can easily imagine reimplementing or extending Inform 7 to work (well) outsi
 
 This is the lecture about relations-actions rule: lecture saying "Early ontologies described systems like naïve physics in which action (system change) plays an important role. The recent trend is in the other direction: describing passive systems in terms of simple, often binary relations.
 
-OWL and its specialization RDF are capable description languages, but they do not have any particular support for active systems. One can specify relations that imply actions (reification), but it's all kind of awkward and inexpressive."
+OWL/RDF and Protege are capable description languages, but they do not have any particular support for active systems. One can specify relations that imply actions (reification), but it's all kind of awkward and inexpressive.
+
+Mark Heller says 'modeling time, or action, as would be found in describing the interrelationships between objects was difficult. For example, how a mob interacts with a room by walking or jumping up and down was something that felt unintuitive in the inheritance hierarchy.'"
 
 This is the lecture about declarative rule: lecture saying "There's a fine line between a semantic description of action and a computer program (c.f. Nimrod). It is interesting to consider in what sense Inform 7 is declarative.
 
@@ -605,16 +609,26 @@ This is the handwave rule: stand the professor; say " Then he waves his hands fr
 
 Chapter - Talk Notes
 
+To say **: say "     *".
+
 Some talk notes are on the Steelcase desk. The description is "This appears to be notes for an Inform 7 talk." The read text is "If you are reading these notes, perhaps you're giving a talk entitled [italic type]Understand 'Inform 7' as an Ontological Description Language[roman type]. If so, here's how you want to proceed:
+
+* Describe Heller's thesis
+
+* Describe Cyc
 
 * Explain about Inform 7
 
-* Show off the talk environment
+[**] Show off the talk environment
 
-* Show off the source code
+[**] Show off the source code
+
+[**] Look at the running example
 
 * Mention outline
 
-* Mention cyc
+* Don't forget the illustrations:
 
-* Mention actions"
+[**] Mention cyc
+
+[**] Mention actions"
