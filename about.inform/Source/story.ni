@@ -473,6 +473,7 @@ topic					rule
 "declarative"			lecture about declarative rule
 "cyc/lenat"			show cyc picture rule
 "actions"				show action diagram rule
+"flowchart"			show flowchart rule
 "handwave/handwaving"	handwave rule
 
 Chapter - Professorial Actions
@@ -589,11 +590,15 @@ The picture of Lenat is a picture. The caption is "Computer Scientist Doug Lenat
 
 The diagram of Inform 7 actions is a picture. The caption is "Structure of rulebooks for action processing". This is the show action diagram rule: make the professor deliver the diagram of Inform 7 actions.
 
+The flowchart is a picture. The caption is "Flowchart of Inform 7 processing". This is the show flowchart rule: make the professor deliver the flowchart.
+
 Section - The Pictures (for Glulx only)
 
 Figure of Lenat is the file "Lenat.jpg". The image of the picture of Lenat is the Figure of Lenat.
 
 Figure of Actions is the file "Actions.png". The image of the diagram of Inform 7 actions is the Figure of Actions.
+
+Figure of Flowchart is the file "Flowchart.png". The image of the flowchart is the Figure of Flowchart.
 
 Section - The Pictures
 
@@ -602,6 +607,8 @@ The description of the picture of Lenat is "This grainy color photograph shows a
 Test picture with "w / mention cyc / x picture".
 
 The description of the diagram of Inform 7 actions is "This diagram shows how an action starts by consulting its 'before' rulebook, then its 'check' rulebook, then its 'carry out' rulebook, then its 'report' rulebook, then its 'after' rulebook."
+
+The description of the flowchart is "This chart shows the processing of an Inform 7 source text. The source text is combined with a bunch of library text and compiled by the 'ni' I7 compiler, which produces Inform 6. The Inform 6 is combined with a bunch of library text and compiled to either the 'Z-machine' or 'glulx' bytecode format. A bytecode interpreter is then used to play the game."
 
 Chapter - Handwave
 
@@ -632,3 +639,11 @@ Some talk notes are on the Steelcase desk. The description is "This appears to b
 [**] Mention cyc
 
 [**] Mention actions"
+
+Chapter - Bibliography
+
+A bibliography is on the Steelcase desk. The description is "This is a very brief bibliography for Inform 7 and ontologies." The read text is "[italic type]Creating Interactive Fiction With Inform 7[roman type] by Aaron Reed. This is the only published book describing Inform 7. Do not get the eBook: it is broken.
+
+[italic type]Twisty Little Passages[roman type] by Nick Montfort. This book is a terrific history and commentary on IF in general.
+
+[italic type]Virtual World Development with Ontologies[roman type] by Mark Heller. This PSU MS Thesis describes using a conventional ontology language to build a multiuser text game."
