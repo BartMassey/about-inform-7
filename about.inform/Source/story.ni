@@ -300,7 +300,7 @@ Taking it stones from is an action applying to one value and one visible thing a
 
 Check taking a number (called n) stones from a pit (called p): let np be the stone count of p; if n > np, say "Your reach exceeds your grasp. Too many stones? The wrong pit? Just confused? Who can say?" instead; if n < 1, say "Clever...but also illegal. Nimrod glares mercilessly at you as you pull your hand back." instead. 
 
-Carry out taking a number (called n) stones from a pit (called p): now the stone count of p is the stone count of p - n; say "You feel [n stones] magically fade away at your touch. [The p] now contains [the stone count of p stones]."; try Nimrod moving.
+Carry out taking a number (called n) stones from a pit (called p): now the stone count of p is the stone count of p - n; say "You feel [n stones] magically fade away at your touch. [The p] now contains [the stone count of p stones]."; if the table is nonempty, try Nimrod moving.
 
 Carry out Nimrod taking a number (called n) stones from a pit (called p): now the stone count of p is the stone count of p - n; say "Nimrod deftly erases [n stones] from [the p], leaving [the stone count of p stones]."
 
@@ -310,9 +310,11 @@ Definition: A pit is nonempty if the stone count of it is greater than 0.
 
 To decide whether the table is empty: let l be the list of nonempty pits; if the number of entries of l is 0, yes; otherwise no.
 
-Check Nimrod moving when the table is empty: say "Nimrod stares sadly at the empty pits. He hangs his head in shame. He has been defeated.[paragraph break]Congratulations, you bastard. You've ruined everything."; now the score is 1; end the story.
+To decide whether the table is nonempty: if the table is empty, no; otherwise yes.
 
-Report Nimrod moving when the table is empty: say "Nimrod's eyes flash in triumph as he completes his victory. You have lost, as he knew you would.[paragraph break]You slink away in shame."; now the score is -1; end the story.
+Report the player taking when the table is empty: say "Nimrod stares sadly at the empty pits. He hangs his head in shame. He has been defeated.[paragraph break]Congratulations, you've ruined everything.[paragraph break]You wander away satisfied."; increment the score; now the player is in the Briefing Room.
+
+Report Nimrod moving when the table is empty: say "Nimrod's eyes flash in triumph as he completes his victory. You have lost, as he knew you would.[paragraph break]You slink away in shame."; decrement the score; now the player is in the Briefing Room.
 
 Section - Computer Play
 
@@ -372,9 +374,11 @@ The Airlock is a room. It is below the upper hatch and above the lower hatch. "Y
 
 A hatchway is a kind of door which is openable and lockable. It is usually closed. It is scenery. To say (H - a hatchway) position: if H is open, say "open"; otherwise say "closed".
 
-The upper hatch is a locked hatchway. It is above the Airlock. The description is "This [upper hatch position] hatch leads from the Airlock into the mysterious unknown."
+The upper hatch is a locked hatchway. It is above the Airlock and below the Room One Does Not Enter. The description is "This [upper hatch position] hatch leads from the Airlock into the mysterious unknown."
 
 The lower hatch is an unlocked hatchway. It is below the Airlock and above the Demo Room. The description is "This [lower hatch position] hatch connects the Airlock and the Demo Room."
+
+The Room One Does Not Enter is a room. "You are not supposed to be here. Go away."
 
 Section 3 - The Hatch Wheel System
 
@@ -386,13 +390,13 @@ The slot is in the Airlock. "Next to the wheel is a small slot." The description
 
 Section 4 - Ending the Game
 
-After going through the upper hatch: say "You climb out of the Demo Lab and into the Briefing Room. All that work for nothing!"; increment the score; now the player is in The Briefing Room.
+After going through the upper hatch: say "You climb out of the Demo Lab and into the Briefing Room. All that work for nothing!"; increment the score; now the player is in the Briefing Room.
 
 Chapter 2 - Testing and Debugging - Not for release
 
 Going unto is an action applying to one thing. Carry out going unto a room (called R) (this is the going unto a room rule): move the player to R. Before going unto a thing: ignore the basic accessibility rule. Carry out going unto a thing (called T) (this is the going unto a thing rule): move the player to the location of T. Understand "go unto [any room]" as going unto. Understand "go unto [any thing]" as going unto. Test go-unto with "go unto wheel / go unto nonexistent / go unto Demo Room".
 
-Test lab with "test sign / test zorkmid / up / test airlock / test wheel".
+Test demolab with "test sign / test zorkmid / up / test airlock / test wheel".
 
 Test sign with "take sign / read sign".
 
