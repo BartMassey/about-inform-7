@@ -4,7 +4,7 @@
 
 [Released under the Creative Commons Attribution 3.0 United States (CC BY 3.0) license. See http://creativecommons.org/licenses/by/3.0/us/ for license details.]
 
-Use authorial modesty.
+Use authorial modesty. Use scoring.
 
 Include Basic Literacy by Bart Massey.
 
@@ -38,7 +38,7 @@ Acknowledging is an action out of world. Carry out acknowledging: say "Sources f
 
 Book - The Briefing Room
 
-There is a room called The Briefing Room. "This wood-paneled study is adequately if indirectly lit by wall-mounted lamps. In the center of the room is a table[if the number of books on the table is 1] with a book on it[otherwise if the number of books on the table is greater than 1], and on the table are several books[end if]. Open doorframes lead west and south. A restroom door lies to the east."
+There is a room called The Briefing Room. "This wood-paneled study is adequately if indirectly lit by wall-mounted lamps. In the center of the room is a table[if the number of books on the table is 1] with a book on it[otherwise if the number of books on the table is greater than 1], and on the table are several books[end if]. Open doorframes lead west and south. A restroom door lies to the east. A dingy corridor lies to the north."
 
 The briefing table is fixed in place scenery in The Briefing Room. "This sturdy polished table of light mahogany has plenty of space to spread out."
 
@@ -148,11 +148,11 @@ Part - Bookcovers
 
 A bookcover is a kind of thing. The description is usually "[The item described] is uninterestingly blank."
 
-To decide what book is the book bound by (the binding bookcover - a bookcover) (this is the find the book bound by a bookcover rule): decide on the object that the binding bookcover relates to by the incorporation relation. [XXX: "decide on the book that the binding bookcover relates to by the incorporation relation" hits Inform 7 bug 729 in version 6G60, as do several similar constructions; see bug 829.]
+To decide what book is the book bound by (the binding bookcover - a bookcover) (this is the find the book bound by a bookcover rule): decide on the object that the binding bookcover relates to by the incorporation relation. [XXX: "decide on the book that the binding bookcover relates to by the incorporation relation" hits Inform 7 bug 729 in version 6G60, as do several similar constructions; see bug 829. This has reportedly since been fixed.]
 
-A title-bearing bookcover is a kind of bookcover. The description is usually "[The default bookcover description of the item described][run paragraph on]".
+To say generic bookcover description of (the bookcover described - a bookcover) (this is the say the generic bookcover description rule): if the book bound by the bookcover described is titled, say the titled description of the bookcover described; otherwise say the untitled description of the bookcover described.
 
-To say the default bookcover description of (the bookcover described - a bookcover) (this is the say the default bookcover description rule): if the book bound by the bookcover described is titled, say the titled description of the bookcover described; otherwise say the untitled description of the bookcover described.
+A title-bearing bookcover is a kind of bookcover. The description is usually "[generic bookcover description of the item described][run paragraph on]".
 
 To say the titled description of (the bookcover described - a bookcover) (this is the say the titled description of a bookcover rule): say "[The bookcover described] is nondescript, merely indicating the title '[the title of the book bound by the bookcover described]'."
 
@@ -354,7 +354,7 @@ Some walls are a backdrop which is in the Demo Lab. Some metal sheets are a back
 
 The metal ladder is a backdrop which is in the Demo Lab. The description is "It looks worn but sturdy." Instead of climbing: try going up. Understand "climb [ladder]" as climbing.  Understand "climb up [ladder]" as climbing. [still needs work]
 
-A room has a room called the xyzzy-room. The xyzzy-room of a room is usually nowhere.
+A room has a room called the xyzzy-room.
 
 Xyzzying is an action applying to nothing. Carry out xyzzying when the xyzzy-room of the location of the player is not nothing: say "*Poof*!"; now the player is in the xyzzy-room of the location of the player; rule succeeds. Carry out xyzzying:  say "Wha?"; rule fails. Understand "xyzzy" as xyzzying.
 
@@ -384,9 +384,13 @@ Section 3 - The Hatch Wheel System
 
 The hatch wheel is in the Airlock. "A small metal wheel protrudes from a shaft halfway up the wall opposite you." It is fixed in place. The wheel can be either pointing upward or pointing downward. It is pointing downward. The description is "This is a rough metal wheel with four spokes affixed to the wall. It looks like some kind of control. There is a red mark painted on the wheel, currently at [mark placement]."  To say mark placement: if the wheel is pointing upward, say "the top of the wheel"; otherwise say "the bottom of the wheel".
 
-To decide whether the wheel is active: if the lower hatch is closed and the upper hatch is closed and the slot is loaded, decide yes; otherwise decide no. To decide whether the wheel is inactive: if the wheel is active, decide no; otherwise decide yes. Before turning the wheel, ignore the can't turn what's fixed in place rule. Instead of turning the wheel when the wheel is inactive: say "The wheel wiggles, but refuses to move.". After turning the wheel, say "The wheel turns creakily through a half revolution. Dry, sterile-smelling air pours from the upper vents and flows out the lower vents for a moment, then stops. Eerie quiet resumes." Carry out turning the wheel when the wheel is active and the wheel is pointing downward: now the lower hatch is locked; now the upper hatch is unlocked; now the wheel is pointing upward; rule succeeds. Carry out turning the wheel when the wheel is active and the wheel is pointing upward: now the lower hatch is unlocked; now the upper hatch is locked; now the wheel is pointing downward; rule succeeds.
+The wheel-aware turning rule is listed instead of the can't turn what's fixed in place rule in the check turning rules.
 
-The slot is in the Airlock. "Next to the wheel is a small slot." The description is "The slot is entirely nondescript. It is vertical: about the height and width of a silver dollar." It is fixed in place. The slot can be either loaded or unloaded. It is unloaded. Loading it into is an action applying to two touchable objects. Carry out loading the zorkmid into the slot: say "The zorkmid vanishes into the slot with a metallic clink."; remove the zorkmid from play; now the slot is loaded; rule succeeds. Carry out loading an object into the slot: say "You look more closely at the [noun] and at the slot and change your mind." Understand "put [thing] in/into [slot]" as loading it into. Understand "drop [thing] in/into [slot]",  "insert [thing] in/into [slot]" and "load [thing] in/into [slot]" as loading it into.
+This is the wheel-aware turning rule: if turning the wheel, continue the action; abide by the can't turn what's fixed in place rule.
+
+To decide whether the wheel is active: if the lower hatch is closed and the upper hatch is closed and the slot is loaded, decide yes; otherwise decide no. To decide whether the wheel is inactive: if the wheel is active, decide no; otherwise decide yes. Instead of turning the wheel when the wheel is inactive: say "The wheel wiggles, but refuses to move.". After turning the wheel, say "The wheel turns creakily through a half revolution. Dry, sterile-smelling air pours from the upper vents and flows out the lower vents for a moment, then stops. Eerie quiet resumes." Carry out turning the wheel when the wheel is active and the wheel is pointing downward: now the lower hatch is locked; now the upper hatch is unlocked; now the wheel is pointing upward; rule succeeds. Carry out turning the wheel when the wheel is active and the wheel is pointing upward: now the lower hatch is unlocked; now the upper hatch is locked; now the wheel is pointing downward; rule succeeds.
+
+The slot is in the Airlock. "Next to the wheel is a small slot." The description is "The slot is entirely nondescript. It is vertical: about the height and width of a silver dollar." It is fixed in place. The slot can be either loaded or unloaded. It is unloaded. Loading it into is an action applying to two touchable things. Carry out loading the zorkmid into the slot: say "The zorkmid vanishes into the slot with a metallic clink."; remove the zorkmid from play; now the slot is loaded; rule succeeds. Carry out loading an object into the slot: say "You look more closely at the [noun] and at the slot and change your mind." Understand "put [thing] in/into [slot]" as loading it into. Understand "drop [thing] in/into [slot]",  "insert [thing] in/into [slot]" and "load [thing] in/into [slot]" as loading it into.
 
 Section 4 - Ending the Game
 
@@ -394,7 +398,7 @@ After going through the upper hatch: say "You climb out of the Demo Lab and into
 
 Chapter 2 - Testing and Debugging - Not for release
 
-Going unto is an action applying to one thing. Carry out going unto a room (called R) (this is the going unto a room rule): move the player to R. Before going unto a thing: ignore the basic accessibility rule. Carry out going unto a thing (called T) (this is the going unto a thing rule): move the player to the location of T. Understand "go unto [any room]" as going unto. Understand "go unto [any thing]" as going unto. Test go-unto with "go unto wheel / go unto nonexistent / go unto Demo Room".
+Going unto is an action applying to one thing. Carry out going unto a room (called R) (this is the going unto a room rule): move the player to R. [Before going unto a thing: ignore the basic accessibility rule.] Carry out going unto a thing (called T) (this is the going unto a thing rule): move the player to the location of T. Understand "go unto [any room]" as going unto. Understand "go unto [any thing]" as going unto. Test go-unto with "go unto wheel / go unto nonexistent / go unto Demo Room".
 
 Test demolab with "test sign / test zorkmid / up / test airlock / test wheel".
 
@@ -425,7 +429,7 @@ The Lab Door is a scenery door. It is west  of the Dingy Corridor and east of th
 
 Volume - The Ontology Lab
 
-The Ontology Lab is a room. "This well-lit room features a prominent [whiteboard] and a [steelcase desk]."
+The Ontology Lab is a room. "This well-lit room features a prominent [whiteboard] and a [steelcase desk]. A door to the east provides egress."
 
 The steelcase desk is fixed in place scenery in the Ontology Lab. The description is "A classic steelcase desk with four locked drawers." The printed name is "Steelcase desk".
 
@@ -437,7 +441,7 @@ Book - The Ontology Lab Whiteboard
 
 The whiteboard is writable scenery in the Ontology Lab. The description is "A regulation-issue whiteboard with a metal tray.[if read text of the whiteboard is not empty] [the contents of the whiteboard][end if]". The read text is "SCRIBBLE ON ME". Understand "board" as the whiteboard. Understand "scribble [text] on [whiteboard]" as writing it on.
 
-A board state description is a kind of value. Board state descriptions are user scribbling, blank slate, or prof outline. The whiteboard has a board state description called the current board state. The current board state is usually blank slate. After erasing the whiteboard, now the current board state is blank slate. After writing on the whiteboard, now the current board state is user scribbling.
+A board state description is a kind of value. Board state descriptions are user scribbling, blank slate, and outlined. The whiteboard has a board state description called the current board state. The current board state is usually blank slate. After erasing the whiteboard, now the current board state is blank slate. After writing on the whiteboard, now the current board state is user scribbling.
 
 To say the contents of the whiteboard: say "Scribbled on the whiteboard is:"; silently try reading the whiteboard.
 
@@ -461,15 +465,14 @@ Mentioning is an action applying to one topic. Understand "mention [text]" as me
 
 Check mentioning a topic when Professor Doppelgänger is not visible: instead say "That sounds like something Professor Doppelgänger might be interested in. Too bad he's not around."
 
-Carry out mentioning a topic listed in the Table of Lecture Subjects: abide by the handwaving entry; rule succeeds.
+Carry out mentioning a topic listed in the Table of Lecture Subjects: abide by the reaction entry; rule succeeds.
 
 Understand "ontology/ontologies" as "[ontol]".
 
 Carry out mentioning a topic: instead say "The Prof seems uninterested in [the topic understood]."
 
 Table of Lecture Subjects
-topic					handwaving
-topic					rule
+topic					reaction
 "outline"				lecture outline rule
 "[ontol]"				lecture about ontology rule
 "upper/-- [ontol]"		lecture about upper ontology rule
@@ -554,7 +557,7 @@ To make the professor deliver (X - a picture):
 
 Chapter - Lecture
 
-This is the lecture outline rule: if the current board state of the whiteboard is prof outline, instead say "Prof Doppelgänger says 'You might want to review the outline on the board.'"; stand the professor; say "He says '[one of]Hmm... Here's[or]Like I said before, here's[stopping] what I'd talk about.' He walks to the whiteboard.[run paragraph on]"; make the professor write "Things to think about
+This is the lecture outline rule: let status be the current board state of the whiteboard; if status is outlined, instead say "Prof Doppelgänger says 'You might want to review the outline on the board.'"; stand the professor; say "He says '[one of]Hmm... Here's[or]Like I said before, here's[stopping] what I'd talk about.' He walks to the whiteboard.[run paragraph on]"; make the professor write "Things to think about
 
 * Ontologies
 
@@ -562,9 +565,9 @@ This is the lecture outline rule: if the current board state of the whiteboard i
 
 * Relation and action descriptions
 
-* Declarative representations"; now the current board state of the whiteboard is prof outline.
+* Declarative representations"; now the current board state of the whiteboard is outlined.
 
-To lecture saying (lecture text - a text): if the current board state of the whiteboard is not prof outline, consider the lecture outline rule; say "(Prof Doppelgänger starts to lecture.)[bold type][paragraph break][lecture text][roman type]".
+To lecture saying (lecture text - a text): unless the current board state of the whiteboard is outlined, abide by the lecture outline rule; say "(Prof Doppelgänger starts to lecture.)[bold type][paragraph break][lecture text][roman type]".
 
 This is the lecture about ontology rule: lecture saying "In computer science, an ontology is a declarative description of a system useful for reasoning about that system.
 
