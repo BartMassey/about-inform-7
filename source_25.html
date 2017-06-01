@@ -6,14 +6,14 @@
   <meta name="author" content="Bart Massey" />
   <meta name="description" content="A page for the game Inform 7 Notes by Bart Massey." />
   <link rel="stylesheet" href="style.css" type="text/css" media="all" />
-</head>
+ </head>
 
 <body>
 
 <div class = "container">
 
 <div class ="sourcecoverimage">
-	<span><a href="Cover.png"><img src="Small Cover.png" border="1" /></a></span>
+	<span><a href="Cover.png"><img src="Small Cover.png" border="1"></a></span>
 </div>
 
 <div class ="sourceintroduction">
@@ -35,7 +35,7 @@
 </div>
 
 <div class = "source">
-<p class="indent0"><span class="heading">Section - Computer Play</span></p><p class="indent0"></p><p class="indent0">Carry out Nimrod moving:</p><p class="indent1">say &quot;<span class="quote">Nimrod ponders the situation ponderously...[</span><span class="substitution">line break</span><span class="quote">]</span>&quot;;</p><p class="indent1">let q be 0;</p><p class="indent1">repeat with p running through the list of nonempty pits:</p><p class="indent2">let n be the stone count of p;</p><p class="indent2">now q is the xor of q and n;</p><p class="indent1">repeat with p running through the list of nonempty pits:</p><p class="indent2">let n be the stone count of p;</p><p class="indent2">let r be the xor of n and q;</p><p class="indent2">if n &gt; r:</p><p class="indent3">let t be n - r;</p><p class="indent3">try Nimrod taking t stones from p instead;</p><p class="indent1">let m be pit one;</p><p class="indent1">repeat with p running through the list of nonempty pits:</p><p class="indent2">let nm be the stone count of m;</p><p class="indent2">let np be the stone count of p;</p><p class="indent2">if np &gt; nm:</p><p class="indent3">now m is p;</p><p class="indent1">try Nimrod taking 1 stones from m.</p><p class="indent2"></p>
+<p class="indent0"><span class="heading">Section - Computer Play</span></p><p class="indent0">Carry out Nimrod moving:</p><p class="indent1">say &quot;<span class="quote">Nimrod ponders the situation ponderously...[</span><span class="substitution">line break</span><span class="quote">]</span>&quot;;</p><p class="indent1">let q be 0;</p><p class="indent1">repeat with p running through the list of nonempty pits:</p><p class="indent2">let n be the stone count of p;</p><p class="indent2">now q is the xor of q and n;</p><p class="indent1">repeat with p running through the list of nonempty pits:</p><p class="indent2">let n be the stone count of p;</p><p class="indent2">let r be the xor of n and q;</p><p class="indent2">if n &gt; r:</p><p class="indent3">let t be n - r;</p><p class="indent3">try Nimrod taking t stones from p instead;</p><p class="indent1">let m be pit one;</p><p class="indent1">repeat with p running through the list of nonempty pits:</p><p class="indent2">let nm be the stone count of m;</p><p class="indent2">let np be the stone count of p;</p><p class="indent2">if np &gt; nm:</p><p class="indent3">now m is p;</p><p class="indent1">try Nimrod taking 1 stones from m.</p><p class="indent2"></p>
 </div>
 
 <div class ="notes">

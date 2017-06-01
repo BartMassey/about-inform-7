@@ -6,14 +6,14 @@
   <meta name="author" content="Bart Massey" />
   <meta name="description" content="A page for the game Inform 7 Notes by Bart Massey." />
   <link rel="stylesheet" href="style.css" type="text/css" media="all" />
-</head>
+ </head>
 
 <body>
 
 <div class = "container">
 
 <div class ="sourcecoverimage">
-	<span><a href="Cover.png"><img src="Small Cover.png" border="1" /></a></span>
+	<span><a href="Cover.png"><img src="Small Cover.png" border="1"></a></span>
 </div>
 
 <div class ="sourceintroduction">
@@ -35,7 +35,7 @@
 </div>
 
 <div class = "source">
-<p class="indent0"><span class="heading">Part - Opening To</span></p><p class="indent0"></p><p class="indent0">Opening to is an action applying to one thing. Understand &quot;<span class="quote">turn to [</span><span class="substitution">bookmark</span><span class="quote">]</span>&quot;  or &quot;<span class="quote">open to [</span><span class="substitution">bookmark</span><span class="quote">]</span>&quot; as opening to.</p><p class="indent0"></p><p class="indent0">Check an actor opening to a bookmark (called the target bookmark) (this is the check opening to a bookmark rule): If the target bookmark is not contained in a book, instead say error opening to the target bookmark that is not in a book.</p><p class="indent0"></p><p class="indent0">To say error opening to (the target bookmark - a bookmark) that is not in a book (this is the opening to a bookmark not in a book error rule): say &quot;<span class="quote">[</span><span class="substitution">The target bookmark</span><span class="quote">] is not in a book.</span>&quot;</p><p class="indent0"></p><p class="indent0">To decide which book is the bookmarked book of (the target bookmark - a bookmark) (this is the decide the bookmarked book of a bookmark rule): if a book (called B) contains the target bookmark, decide on B; otherwise decide on nothing.</p><p class="indent0"></p><p class="indent0">Carry out an actor opening to a bookmark (called the target bookmark) (this is the open to a bookmark rule):  Let B be the bookmarked book of the target bookmark; let P be the bookmarked page of the target bookmark; try turning B to P; say clarification turning to page P of B.</p><p class="indent0"></p><p class="indent0">To say clarification turning to page (the target page - a number) of (the book turned - a book) (this is the say turning to page clarification rule): say &quot;<span class="quote">(turning to page [</span><span class="substitution">the target page</span><span class="quote">] of [</span><span class="substitution">the book turned</span><span class="quote">])[</span><span class="substitution">command clarification break</span><span class="quote">]</span>&quot;.</p><p class="indent0"></p>
+<p class="indent0"><span class="heading">Part - Opening To</span></p><p class="indent0">Opening to is an action applying to one thing. Understand &quot;<span class="quote">turn to [</span><span class="substitution">bookmark</span><span class="quote">]</span>&quot;  or &quot;<span class="quote">open to [</span><span class="substitution">bookmark</span><span class="quote">]</span>&quot; as opening to.</p><p class="indent0">Check an actor opening to a bookmark (called the target bookmark) (this is the check opening to a bookmark rule): If the target bookmark is not contained in a book, instead say error opening to the target bookmark that is not in a book.</p><p class="indent0">To say error opening to (the target bookmark - a bookmark) that is not in a book (this is the opening to a bookmark not in a book error rule): say &quot;<span class="quote">[</span><span class="substitution">The target bookmark</span><span class="quote">] is not in a book.</span>&quot;</p><p class="indent0">To decide which book is the bookmarked book of (the target bookmark - a bookmark) (this is the decide the bookmarked book of a bookmark rule): if a book (called B) contains the target bookmark, decide on B; otherwise decide on nothing.</p><p class="indent0">Carry out an actor opening to a bookmark (called the target bookmark) (this is the open to a bookmark rule):  Let B be the bookmarked book of the target bookmark; let P be the bookmarked page of the target bookmark; try turning B to P; say clarification turning to page P of B.</p><p class="indent0">To say clarification turning to page (the target page - a number) of (the book turned - a book) (this is the say turning to page clarification rule): say &quot;<span class="quote">(turning to page [</span><span class="substitution">the target page</span><span class="quote">] of [</span><span class="substitution">the book turned</span><span class="quote">])[</span><span class="substitution">command clarification break</span><span class="quote">]</span>&quot;.</p>
 </div>
 
 <div class ="notes">
