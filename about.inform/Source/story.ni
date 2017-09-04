@@ -7,6 +7,8 @@
 Use authorial modesty. Use scoring.
 
 Include Basic Literacy by Bart Massey.
+Include Books by Bart Massey.
+Include Bitwise Operators by Bart Massey.
 
 Volume - Setup
 
@@ -24,7 +26,7 @@ The story headline is "A Metareflective Talk Environment".
 
 When play begins, say "You enter the Inform Virtual Institute, passing under the sign with the ivy-leaf logo. The security door locks behind you---you're here for the day..."
 
-After printing the banner text, say "[paragraph break]Copyright (c) 2012 Bart Massey[paragraph break]This text 'adventure' is both the 'slides' for my talks on Inform 7 and a couple of demo apps.[paragraph break]One demo app, a Nim player, is also included as an example in my extension Bitwise Operators by Bart Massey. The other demo app is a more traditional text adventure puzzle.[paragraph break]The Briefing Room uses a not-yet-complete 'books' extension I'm working on that provides fairly elaborate book behavior. To see the talk slides, say 'read book' and keep saying it until you're done. Say 'help' for further meta-information.[paragraph break]"
+After printing the banner text, say "[paragraph break]Copyright (c) 2012 Bart Massey[paragraph break]This text 'adventure' is both the 'slides' for my talks on Inform 7 and a couple of demo apps.[paragraph break]One demo app, a Nim player, is also included as an example in my extension Bitwise Operators by Bart Massey. The other demo app is a more traditional text adventure puzzle.[paragraph break]The Briefing Room uses my Books extension (developed with André Rodriguez) that provides fairly elaborate book behavior. To see the talk slides, say 'read book' and keep saying 'read' until you're done. Say 'help' for further meta-information.[paragraph break]"
 
 The maximum score is 2.
 
@@ -42,189 +44,6 @@ There is a room called The Briefing Room. "This wood-paneled study is adequately
 
 The briefing table is fixed in place scenery in The Briefing Room. "This sturdy polished table of light mahogany has plenty of space to spread out."
 
-Volume - Books
-
-Book - Books and Book Parts
-
-A book is a kind of container. It is openable. It is usually closed. It has some text called the title. The description is usually "[the default book description of the item described][run paragraph on]".
-
-To say the default book description of (the book described - a book) (this is the say the default book description rule): if the book described is open, say "[The book described] is open."; if the book described is closed and the book described is titled, say "[The book described] is titled '[the title of the book described]'."; if the book described is closed and the book described is untitled, say "[The book described] is closed."
-
-Part - Book Titles
-
-The title of a book is usually "[the printed name in title case]".
-
-A bound volume is a kind of book. The title of a bound volume is usually "".
-
-Definition: a book is titled if the title of it is not empty. Definition: a book is untitled if the title of it is empty.
-
-Part - Implicit Opening / Closing
-
-To implicitly open (the book opened - a book) (this is the implicitly open a book rule): silently try opening the book opened; say first opening the book opened clarification.
-
-To say first opening (the book opened - a book) clarification (this is the say first opening clarification rule): say "(first opening [the book opened]) [command clarification break]".
-
-To implicitly close (the book closed - a book) (this is the implicitly close a book rule): silently try closing the book closed; say finally closing the book closed clarification.
-
-To say finally closing (the book closed - a book) clarification (this is the say finally closing clarification rule): say "(finally closing [the book closed])[paragraph break]".
-
-Before an actor searching a closed book (called the book searched) (this is the open closed book for searching rule): implicitly open the book searched.
-
-Part - Pages
-
-Some pages are a kind of thing. The description is usually "[if the page count of the book abstracted by the item described is greater than 1][The book abstracted by the item described] has [the page count of the book abstracted by item described] pages. [end if]The pages are uninteresting in themselves; you may want to try reading them." Pages are part of every book.
-
-To decide what book is the book abstracted by (the concrete pages - some pages) (this is the find the book abstracting some pages rule): decide on the object that the concrete pages relates to by the incorporation relation.
-
-A book has a table name called the manuscript. It has a number called the current page.
-
-Before an actor opening a closed book (this is the open a book to the first page rule): now the current page is 1.
-
-After an actor closing a book (this is the close a book and lose the place rule): now the current page is 0.
-
-Chapter - Page Functions
-
-To decide what text is the current page text of (the book read - a book) (this is the decide the current page text rule): let M be the manuscript of the book read; let N be the current page of the book read; decide on the Page Text in row N of M.
-
-To decide which number is the page count of (the book in question - a book) (this is the decide the page count of a book rule): Let M be the manuscript of the book in question; if M is not empty, decide on the number of rows in M; otherwise decide on 0.
-
-To say a page of (the book read - a book) (this is the say a page of a book rule): Let N be the page count of the book read; if N is greater than 1, say the current page number clarification of the book read; say the current page text of the book read; increment the current page of the book read.
-
-To say the current page number clarification of (the book read - a book) (this is the say the current page number clarification rule): say "(page [current page of the book read])[line break]".
-
-To say the current page text of (the book read - a book) (this is the say the current page text rule): say "[line break][current page text of the book read][paragraph break]".
-
-Chapter - Turning To
-
-Turning it to is an action applying to one thing and one value and requiring light. Understand "page [number]" or "[number]" as "[page number]". Understand "turn [book] to [page number]" or "open [book] to [page number]"  as turning it to. Understand "turn to [page number] in [book]" or "open to [page number] in [book]" as turning it to (with nouns reversed).
-
-Before an actor turning a closed book (called the book turned) to a number (this is the implicitly open a closed book for turning to rule): implicitly open the book turned.
-
-Check an actor turning a book (called the book turned) to a number (called the target page) (this is the check turning to a valid page rule): If the target page is less than 1 or the target page is greater than the page count of the book turned, instead say error the target page does not exist in the book turned.
-
-To say error (the target page - a number) does not exist in (the book turned - a book) (this is the say nonexistent target page error rule): say "Page [the target page] does not exist in [the book turned]."
-
-Carry out an actor turning a book (called the book turned) to a number (called the page number) (this is the turn a book to a page rule): now the current page of the book turned is the page number.
-
-Chapter - Turning To First Or Last
-
-Turning to first is an action applying to one thing and requiring light. Understand "first/front" or "the first/front" or "first/front page" or "the first/front page" as "[first]". Understand "turn [book] to [first]" or "turn to [first] of/in [book]" as turning to first. Instead of an actor turning to first a book (called the book turned) (this is the turn to first page rule): try turning the book turned to 1.
-
-Turning to last is an action applying to one thing and requiring light. Understand "last/end/ending/final" or "the last/end/ending/final" or "last/end/ending/final page" or "the last/end/ending/final page" as "[last]". Understand "turn [book] to [last]" or "turn to [last] of/in [book]" as turning to last. Instead of an actor turning to last a book (called the book turned) (this is the turn to last page rule): try turning the book turned to the page count of the book turned.
-
-Part - Summarizing
-
-Summarizing is an action applying to one visible thing and requiring light. Understand "summarize [book]" as summarizing.
-
-Before an actor summarizing a closed book (called the book to be summarized) (this is the implicitly open a book before summarizing rule): implicitly open the book to be summarized.
-
-Check an actor summarizing a book (called the book to be summarized) (this is the check summarizing a book rule): If the read text of book to be summarized is empty, instead say error the book to be summarized has no summary.
-
-To say error (the book to be summarized - a book) has no summary (this is the say summarizing an unsummarizable book error rule): say "[The book to be summarized] is not easily summarized---another possibility is to try READing it."
-
-Carry out an actor summarizing a book (called the book summarized) (this is the summarize a book rule): say the read text of the book summarized.
-
-Section - Book Reading
-
-Before an actor reading a closed book (called the book read) (this is the open closed book for reading rule): implicitly open the book read.
-
-[XXX: This next bit awkwardly overrides checking reading things in general to handle the special case of books. There must be a better way.]
-
-The check reading a thing including books rule is listed instead of the check reading a thing rule in the check reading rulebook.
-
-Check an actor reading a book (called the book read) (this is the check reading a book rule): if the book read is closed, instead say error the book read is stuck closed; if the page count of the book read is 0 and the read text of the book read is empty, instead say error the book read has no content.
-
-Check an actor reading a thing (called the thing read) (this is the check reading a thing including books rule): if the thing read is not a book, abide by the check reading a thing rule.
-
-To say error (the book read - a book) has no content (this is the say reading an no-content book error rule): say "The contents of [the book read] are uninteresting."
-
-To say error (the book read - a book) is stuck closed (this is the say book stuck closed error rule): say "[The book read] seems to be stuck closed, and cannot be read." [XXX: It would take some finagling for this rule to be reached. It's just defensive programming.]
-
-Carry out an actor reading a book (called the book read) (this is the read a book rule): if the page count of the book read is greater than 0, say a page of the book read; otherwise say the read text of the book read; rule succeeds.
-
-After an actor reading an open book (called the book read) (this is the reading the last page of a book rule): let P be the current page of the book read; let N be the page count of the book read; if N is greater than 1 and P is greater than N, implicitly close the book read; if P is greater than N, now P is 1.
-
-Part - Bookcovers
-
-A bookcover is a kind of thing. The description is usually "[The item described] is uninterestingly blank."
-
-To decide what book is the book bound by (the binding bookcover - a bookcover) (this is the find the book bound by a bookcover rule): decide on the object that the binding bookcover relates to by the incorporation relation. [XXX: "decide on the book that the binding bookcover relates to by the incorporation relation" hits Inform 7 bug 729 in version 6G60, as do several similar constructions; see bug 829. This has reportedly since been fixed.]
-
-To say generic bookcover description of (the bookcover described - a bookcover) (this is the say the generic bookcover description rule): if the book bound by the bookcover described is titled, say the titled description of the bookcover described; otherwise say the untitled description of the bookcover described.
-
-A title-bearing bookcover is a kind of bookcover. The description is usually "[generic bookcover description of the item described][run paragraph on]".
-
-To say the titled description of (the bookcover described - a bookcover) (this is the say the titled description of a bookcover rule): say "[The bookcover described] is nondescript, merely indicating the title '[the title of the book bound by the bookcover described]'."
-
-To say the untitled description of (the bookcover described - a bookcover) (this is the say the untitled description of a bookcover rule): say "[The bookcover described] bears no title."
-
-Section - Standard Bookcovers
-
-A front cover is a kind of title-bearing bookcover. A front cover is part of every book.
-
-A back cover is a kind of bookcover. A back cover is part of every book.
-
-A spine is a kind of title-bearing bookcover. A spine is part of every book.
-
-Part - The Relevant Book
-
-The nonexistent book is a privately-named book. The last book touched is a book variable. The last book touched is the nonexistent book.
-
-Before an actor doing something to a book (called the book touched) (this is the remember the last book touched rule): now the last book touched is the book touched.
-
-To say error cannot find a relevant book (this is the say cannot find a relevant book error rule): say "There is no obvious choice of book."
-
-To decide which book is the relevant book: If the last book touched is not the nonexistent book and the last book touched is visible, decide on the last book touched; if exactly one book is visible, decide on a random visible book; say error cannot find a relevant book; decide on the nonexistent book.
-
-Understand "read" as reading. Rule for supplying a missing noun when reading (this is the find a book to read rule): Let B be the relevant book; if B is the nonexistent book, rule fails; now the noun is B; say "(reading [the noun])[command clarification break]".
-
-Turning to page is an action applying to one value and requiring light. Understand "turn to page [number]" or "open to page [number]" as turning to page.
-
-Carry out turning to page number (called the page number turned to) (this is the turn to page rule): Let B be the relevant book; if B is the nonexistent book, rule fails; try turning B to the page number turned to.
-
-[Page turning is an action requiring light. Understand "turn page" or "turn the page" as page turning. 
-
-Carry out page turning: Let B be the relevant book; if B is the nonexistent book, rule fails; let P be the current page of B; let Q be P + 1; try turning B to Q; say the current page number clarification of B.]
-
-Book - Bookmarks
-
-[XXX: We put bookmarks in their own "Book" (doh) preparatory to moving them to a separate extension altogether.]
-
-A bookmark is a kind of thing. A bookmark has a number called the bookmarked page.
-
-[XXX: By default, it's nice to be able to see the bookmark hanging out of a book. Of course, if you allow putting other things in books you may want to do something more sophisticated. Or you may just want to force people to open books to see the bookmarks...]
-
-A book is usually transparent.
-
-Part - Bookmarking Actions
-
-Before an actor inserting a bookmark into a closed book (called the book inserted into) (this is the open closed books for bookmarking rule): implicitly open the book inserted into.
-
-Check an actor inserting a thing (called the thing inserted) into a book (called the book inserted into) (this is the check inserting a thing into a book rule): If the thing inserted is not a bookmark, instead say error inserting the thing inserted that is not a bookmark into the book inserted into; if the page count of the book inserted into is 0, instead say error inserting the thing inserted into the book inserted into that has no pages. 
-
-To say error inserting (the thing inserted - a thing) into (the book inserted into - a book) that has no pages (this is the say inserting into a book with no pages error rule): say "[The thing inserted] has no useful place in [the book inserted into]."
-
-To say error inserting (the thing inserted - a thing) that is not a bookmark into (the book inserted into - a book) (this is the say inserting a non-bookmark into a book error rule): say "Putting [the thing inserted] into [the book inserted into] seems pointless."
-
-After an actor inserting a bookmark (called the bookmark inserted) into a book (called the book inserted into) (this is the bookmark a book rule): now the bookmarked page of the bookmark inserted is the current page of the book inserted into; say report that the bookmark inserted is in the book inserted into.
-
-To say report that (the bookmark inserted - a bookmark) is in (the book inserted into - a book) (this is the say inserted a bookmark into a book report rule): say "[The bookmark inserted] falls gently into [the book inserted into]."
-
-Understand "put [bookmark] at/in [page number]" as a mistake ("To bookmark a particular page of some book, you need to open the book to that page, then insert the bookmark. Try OPEN (book) TO PAGE (page), INSERT (bookmark) INTO IT.").
-
-Part - Opening To
-
-Opening to is an action applying to one thing. Understand "turn to [bookmark]"  or "open to [bookmark]" as opening to.
-
-Check an actor opening to a bookmark (called the target bookmark) (this is the check opening to a bookmark rule): If the target bookmark is not contained in a book, instead say error opening to the target bookmark that is not in a book.
-
-To say error opening to (the target bookmark - a bookmark) that is not in a book (this is the opening to a bookmark not in a book error rule): say "[The target bookmark] is not in a book."
-
-To decide which book is the bookmarked book of (the target bookmark - a bookmark) (this is the decide the bookmarked book of a bookmark rule): if a book (called B) contains the target bookmark, decide on B; otherwise decide on nothing.
-
-Carry out an actor opening to a bookmark (called the target bookmark) (this is the open to a bookmark rule):  Let B be the bookmarked book of the target bookmark; let P be the bookmarked page of the target bookmark; try turning B to P; say clarification turning to page P of B.
-
-To say clarification turning to page (the target page - a number) of (the book turned - a book) (this is the say turning to page clarification rule): say "(turning to page [the target page] of [the book turned])[command clarification break]".
 
 Volume - The Talk
 
@@ -242,7 +61,7 @@ Page Text
 
 Section - The Briefing Book
 
-The briefing book is a book on the briefing table. The title is "Inform 7 Briefing Book" [sic]. The manuscript is the Table of Briefing Book Pages.
+The briefing book is a book on the briefing table. The title is "Inform 7 Briefing Book" [sic]. The manuscript of the briefing book is the Table of Briefing Book Pages.
 
 To say p: say paragraph break.
 To say l: say line break.
@@ -258,11 +77,7 @@ Page Text
 "People write non-game-ish demos and stuff in I7 all the time. This is just one example. You can find more on the web.[p]I7 is also a good model for how to do user interaction via DSL. I think it generalizes to GUI UX etc.[p]Inform 7 is cool. You should learn it."
 
 
-
 Volume - Nimrod
-
-To decide what number is the xor of (a - a number) and (b - a number):
-	(- ({a} + {b} - 2 * ({a} & {b})) -).
 
 Chapter - The Game
 
@@ -272,7 +87,7 @@ Section - The XORer - Not for release
 
 A register is a kind of thing. Every register has a number called the rvalue. The rvalue is usually 0. The description of a register is "This register is currently set to [rvalue of the item described]."
 
-To decide what number is the xor of (a - a register) and (b - a register): let ra be the rvalue of a; let rb be the rvalue of b; decide on the xor of ra and rb.
+To decide what number is the xor of (a - a register) and (b - a register): let ra be the rvalue of a; let rb be the rvalue of b; decide on ra bit-xor rb.
 
 The xorer is a thing in The Game Room. "A high-quality xorer sits in a corner of the room, each input register ready for assignment." A register called the alpha register is part of the xorer. A register called the beta register is part of the xorer. The description of the xorer is "The xorer indicates that the xor of alpha = [the rvalue of alpha] and beta = [the rvalue of beta] is [the xor of alpha and beta]."
 
@@ -323,10 +138,10 @@ Carry out Nimrod moving:
 	let q be 0;
 	repeat with p running through the list of nonempty pits:
 		let n be the stone count of p;
-		now q is the xor of q and n;
+		bit-xor n into q;
 	repeat with p running through the list of nonempty pits:
 		let n be the stone count of p;
-		let r be the xor of n and q;
+		let r be the n bit-xor q;
 		if n > r:
 			let t be n - r;
 			try Nimrod taking t stones from p instead;
@@ -390,7 +205,7 @@ This is the wheel-aware turning rule: if turning the wheel, continue the action;
 
 To decide whether the wheel is active: if the lower hatch is closed and the upper hatch is closed and the slot is loaded, decide yes; otherwise decide no. To decide whether the wheel is inactive: if the wheel is active, decide no; otherwise decide yes. Instead of turning the wheel when the wheel is inactive: say "The wheel wiggles, but refuses to move.". After turning the wheel, say "The wheel turns creakily through a half revolution. Dry, sterile-smelling air pours from the upper vents and flows out the lower vents for a moment, then stops. Eerie quiet resumes." Carry out turning the wheel when the wheel is active and the wheel is pointing downward: now the lower hatch is locked; now the upper hatch is unlocked; now the wheel is pointing upward; rule succeeds. Carry out turning the wheel when the wheel is active and the wheel is pointing upward: now the lower hatch is unlocked; now the upper hatch is locked; now the wheel is pointing downward; rule succeeds.
 
-The slot is in the Airlock. "Next to the wheel is a small slot." The description is "The slot is entirely nondescript. It is vertical: about the height and width of a silver dollar." It is fixed in place. The slot can be either loaded or unloaded. It is unloaded. Loading it into is an action applying to two touchable things. Carry out loading the zorkmid into the slot: say "The zorkmid vanishes into the slot with a metallic clink."; remove the zorkmid from play; now the slot is loaded; rule succeeds. Carry out loading an object into the slot: say "You look more closely at the [noun] and at the slot and change your mind." Understand "put [thing] in/into [slot]" as loading it into. Understand "drop [thing] in/into [slot]",  "insert [thing] in/into [slot]" and "load [thing] in/into [slot]" as loading it into.
+The slot is in the Airlock. "Next to the wheel is a small slot." The description is "The slot is entirely nondescript. It is vertical: about the height and width of a silver dollar." It is fixed in place. The slot can be either loaded or unloaded. It is unloaded. Loading it into is an action applying to two touchable things. Carry out loading the zorkmid into the slot: say "The zorkmid vanishes into the slot with a metallic clink."; now the zorkmid is off-stage; now the slot is loaded; rule succeeds. Carry out loading an object into the slot: say "You look more closely at the [noun] and at the slot and change your mind." Understand "put [thing] in/into [slot]" as loading it into. Understand "drop [thing] in/into [slot]",  "insert [thing] in/into [slot]" and "load [thing] in/into [slot]" as loading it into.
 
 Section 4 - Ending the Game
 
@@ -429,7 +244,7 @@ The Lab Door is a scenery door. It is west  of the Dingy Corridor and east of th
 
 Volume - The Ontology Lab
 
-The Ontology Lab is a room. "This well-lit room features a prominent [whiteboard] and a [steelcase desk]. A door to the east provides egress."
+The Ontology Lab is a room. "This room is well-lit. A door to the east provides egress."
 
 The steelcase desk is fixed in place scenery in the Ontology Lab. The description is "A classic steelcase desk with four locked drawers." The printed name is "Steelcase desk".
 
@@ -443,7 +258,7 @@ The whiteboard is writable scenery in the Ontology Lab. The description is "A re
 
 A board state description is a kind of value. Board state descriptions are user scribbling, blank slate, and outlined. The whiteboard has a board state description called the current board state. The current board state is usually blank slate. After erasing the whiteboard, now the current board state is blank slate. After writing on the whiteboard, now the current board state is user scribbling.
 
-To say the contents of the whiteboard: say "Scribbled on the whiteboard is:"; silently try reading the whiteboard.
+To say the contents of the whiteboard: say "Scribbled on the whiteboard is:[command clarification break]"; silently try reading the whiteboard.
 
 The metal tray is a supporter. It is part of the whiteboard. The description is "This narrow metal tray is built to support markers and erasers."
 
@@ -459,28 +274,28 @@ Test whiteboard with "read whiteboard / erase whiteboard / x whiteboard".
 
 Book - Professor Doppelgänger
 
-A man called Professor Doppelgänger is on the sturdy desk chair. The description is "Even after looking twice, this guy looks a lot like a professor you know named Bart Massey." Understand "Prof/Professor/Dr/--" as "[professional title]". Understand "Doppelgänger/Doppelganger" as "[Doppelganger name]". Understand "[professional title] [Doppelganger name]" or "[professional title]" or "[Doppelganger name]" as Professor  Doppelgänger.
+A man called Professor Doppelgänger is on the sturdy desk chair. The description is "Even after looking twice, this guy looks a lot like a professor you know named Bart Massey." Understand "Prof/Professor/Dr" as "[professional title]". Understand "Doppelgänger/Doppelganger" as "[Doppelganger name]". Understand "[professional title] [Doppelganger name]" or "[professional title]" or "[Doppelganger name]" as Professor  Doppelgänger.
 
-Mentioning is an action applying to one topic. Understand "mention [text]" as mentioning.
+Mentioning is an action applying to one topic. Understand "mention [text]" as mentioning. Understand "talk to/-- [Professor Doppelgänger]" as a mistake ("You should probably just MENTION OUTLINE").
 
 Check mentioning a topic when Professor Doppelgänger is not visible: instead say "That sounds like something Professor Doppelgänger might be interested in. Too bad he's not around."
 
 Carry out mentioning a topic listed in the Table of Lecture Subjects: abide by the reaction entry; rule succeeds.
 
-Understand "ontology/ontologies" as "[ontol]".
-
 Carry out mentioning a topic: instead say "The Prof seems uninterested in [the topic understood]."
 
+Understand "ontology/ontologies" as "[ontol]".
+
 Table of Lecture Subjects
-topic					reaction
-"outline"				lecture outline rule
-"[ontol]"				lecture about ontology rule
-"upper/-- [ontol]"		lecture about upper ontology rule
-"relations-actions"		lecture about relations-actions rule
-"declarative"			lecture about declarative rule
-"cyc/lenat"			show cyc picture rule
-"actions"				show action diagram rule
-"flowchart"			show flowchart rule
+topic						reaction
+"outline"					lecture outline rule
+"[ontol]"					lecture about ontology rule
+"upper/-- [ontol]"			lecture about upper ontology rule
+"relations-actions"			lecture about relations-actions rule
+"declarative"				lecture about declarative rule
+"cyc/lenat"				show cyc picture rule
+"actions"					show action diagram rule
+"flowchart"				show flowchart rule
 "handwave/handwaving"	handwave rule
 
 Chapter - Professorial Actions
@@ -510,7 +325,7 @@ To make the professor clear the whiteboard:
 		say "[run paragraph on]He wipes the board clean with his sleeve.[run paragraph on]"; 
 		now the read text of the whiteboard is "".
 
-To make the professor write (T - a text): make the professor clear the whiteboard; say "He pulls a marker from his pocket and scribbles on the board for a moment:"; now the read text of the whiteboard is T; silently try reading the whiteboard.
+To make the professor write (T - a text): make the professor clear the whiteboard; say "He pulls a marker from his pocket and scribbles on the board for a moment:[command clarification break]"; now the read text of the whiteboard is T; silently try reading the whiteboard.
 
 A picture is a kind of thing. It has a text called the caption.
 
@@ -593,7 +408,7 @@ The desk key unlocks the top drawer. Professor Doppelgänger carries it.
 
 Every picture is in the top drawer.
 
-The picture of Lenat is a picture. The caption is "Computer Scientist Doug Lenat, founder of the Cyc Project". This is the show cyc picture rule: make the professor deliver the picture of Lenat.
+The photo of Lenat is a picture. The caption is "Computer Scientist Doug Lenat, founder of the Cyc Project". This is the show cyc picture rule: make the professor deliver the photo of Lenat.
 
 The diagram of Inform 7 actions is a picture. The caption is "Structure of rulebooks for action processing". This is the show action diagram rule: make the professor deliver the diagram of Inform 7 actions.
 
@@ -601,7 +416,7 @@ The flowchart is a picture. The caption is "Flowchart of Inform 7 processing". T
 
 Section - The Pictures (for Glulx only)
 
-Figure of Lenat is the file "Lenat.jpg". The image of the picture of Lenat is the Figure of Lenat.
+Figure of Lenat is the file "Lenat.jpg". The image of the photo of Lenat is the Figure of Lenat.
 
 Figure of Actions is the file "Actions.png". The image of the diagram of Inform 7 actions is the Figure of Actions.
 
@@ -623,7 +438,7 @@ This is the handwave rule: stand the professor; say " Then he waves his hands fr
 
 Chapter - Talk Notes
 
-To say **: say "     *".
+To say **: say "    *".
 
 Some talk notes are on the Steelcase desk. The description is "This appears to be notes for an Inform 7 talk." The read text is "If you are reading these notes, perhaps you're giving a talk entitled [italic type]Understand 'Inform 7' as an Ontological Description Language[roman type]. If so, here's how you want to proceed:
 
