@@ -177,7 +177,7 @@ Section 1 - The Demo Room
 
 The Demo Room is south of The Briefing Room. "Around you stretch the riveted sheets of bare metal that form the walls of the Demo Room. At the center of the room, a narrow metal ladder leads upward through a hatch in the ceiling, currently [lower hatch position]. An open doorframe leads north." The xyzzy-room of the Demo Room is the Airlock.
 
-The sign is an object in the Demo Room. "A flimsy plastic sign is affixed to one wall." The description is "The sign reads 'Up and Out!'" It is fixed in place.
+The sign is an object in the Demo Room. "A flimsy plastic sign is affixed to one wall." The description is "The sign reads '[read text of the sign]'." The read text is "Up and Out!" It is fixed in place.
 
 The cardboard box is an unopenable open container in the Demo Room. "A nondescript cardboard box sits in the corner. The sides sag out." Before taking the box: try apprehending the zorkmid. Carry out looking under the box: say "You see what looks like the underside of a cardboard box."; try apprehending the zorkmid. Instead of pushing the box when the box is not carried: say "You give the box a shove."; try apprehending the zorkmid. 
 
