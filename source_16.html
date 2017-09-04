@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-  <title>Bart Massey - Inform 7 Notes — 18 of 51</title>
+  <title>Bart Massey - Inform 7 Notes — 18 of 35</title>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
   <meta name="author" content="Bart Massey" />
   <meta name="description" content="A page for the game Inform 7 Notes by Bart Massey." />
@@ -18,7 +18,7 @@
 
 <div class ="sourceintroduction">
 	<h1>
-		<span>Inform 7 Notes</span> <span class="pagination">— 18 of 51</span>
+		<span>Inform 7 Notes</span> <span class="pagination">— 18 of 35</span>
 	</h1>
 	<h2>
 		<span>Bart Massey</span>
@@ -35,7 +35,7 @@
 </div>
 
 <div class = "source">
-<p class="indent0"><span class="heading">Part - Bookmarking Actions</span></p><p class="indent0">Before an actor inserting a bookmark into a closed book (called the book inserted into) (this is the open closed books for bookmarking rule): implicitly open the book inserted into.</p><p class="indent0">Check an actor inserting a thing (called the thing inserted) into a book (called the book inserted into) (this is the check inserting a thing into a book rule): If the thing inserted is not a bookmark, instead say error inserting the thing inserted that is not a bookmark into the book inserted into; if the page count of the book inserted into is 0, instead say error inserting the thing inserted into the book inserted into that has no pages. </p><p class="indent0">To say error inserting (the thing inserted - a thing) into (the book inserted into - a book) that has no pages (this is the say inserting into a book with no pages error rule): say &quot;<span class="quote">[</span><span class="substitution">The thing inserted</span><span class="quote">] has no useful place in [</span><span class="substitution">the book inserted into</span><span class="quote">].</span>&quot;</p><p class="indent0">To say error inserting (the thing inserted - a thing) that is not a bookmark into (the book inserted into - a book) (this is the say inserting a non-bookmark into a book error rule): say &quot;<span class="quote">Putting [</span><span class="substitution">the thing inserted</span><span class="quote">] into [</span><span class="substitution">the book inserted into</span><span class="quote">] seems pointless.</span>&quot;</p><p class="indent0">After an actor inserting a bookmark (called the bookmark inserted) into a book (called the book inserted into) (this is the bookmark a book rule): now the bookmarked page of the bookmark inserted is the current page of the book inserted into; say report that the bookmark inserted is in the book inserted into.</p><p class="indent0">To say report that (the bookmark inserted - a bookmark) is in (the book inserted into - a book) (this is the say inserted a bookmark into a book report rule): say &quot;<span class="quote">[</span><span class="substitution">The bookmark inserted</span><span class="quote">] falls gently into [</span><span class="substitution">the book inserted into</span><span class="quote">].</span>&quot;</p><p class="indent0">Understand &quot;<span class="quote">put [</span><span class="substitution">bookmark</span><span class="quote">] at/in [</span><span class="substitution">page number</span><span class="quote">]</span>&quot; as a mistake (&quot;<span class="quote">To bookmark a particular page of some book, you need to open the book to that page, then insert the bookmark. Try OPEN (book) TO PAGE (page), INSERT (bookmark) INTO IT.</span>&quot;).</p>
+<p class="indent0"><span class="heading">Chapter 2 - Testing and Debugging - Not for release</span></p><p class="indent0">Going unto is an action applying to one thing. Carry out going unto a room (called R) (this is the going unto a room rule): move the player to R. <span class="comment">[Before going unto a thing: ignore the basic accessibility rule.]</span> Carry out going unto a thing (called T) (this is the going unto a thing rule): move the player to the location of T. Understand &quot;<span class="quote">go unto [</span><span class="substitution">any room</span><span class="quote">]</span>&quot; as going unto. Understand &quot;<span class="quote">go unto [</span><span class="substitution">any thing</span><span class="quote">]</span>&quot; as going unto. Test go-unto with &quot;<span class="quote">go unto wheel / go unto nonexistent / go unto Demo Room</span>&quot;.</p><p class="indent0">Test demolab with &quot;<span class="quote">test sign / test zorkmid / up / test airlock / test wheel</span>&quot;.</p><p class="indent0">Test sign with &quot;<span class="quote">take sign / read sign</span>&quot;.</p><p class="indent0">Test zorkmid with &quot;<span class="quote">look in box / look under box / i</span>&quot;.</p><p class="indent0">Test airlock with &quot;<span class="quote">up / close lower / down / close hatch / up</span>&quot;.</p><p class="indent0">Test wheel with &quot;<span class="quote">close lower / turn wheel / put zorkmid in / turn wheel / down / up</span>&quot;.</p>
 </div>
 
 <div class ="notes">
