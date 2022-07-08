@@ -6,4 +6,4 @@ They have now also been used for my 30 April 2012 Portland
 State University Systems Science seminar talk on Inform 7.
 
 To review them, just
-[click here now](http://bartmassey.github.com/about-inform-7).
+[click here now](http://bartmassey.github.io/about-inform-7).
