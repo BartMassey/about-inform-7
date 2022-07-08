@@ -16,8 +16,6 @@ Release along with an interpreter, cover art, the source text and the library ca
 
 After reading a command when the player's command matches the regular expression "^\p|^\*" (this is the ignore beta-comments rule): say "(noted)"; reject the player's command.
 
-To say debug: (- #ifdef DEBUG; -). To say end debug: (- #endif; -).
-
 Use American dialect.
 
 Rule for deciding whether all includes scenery: it does not.
@@ -103,11 +101,11 @@ To say (n - a number) stones: if n is 0, say "nothing"; if n is 1, say "one ston
 
 A pit is a kind of thing. Every pit has a number called the stone count. The description of a pit is "[The item described] contains [the stone count of the item described stones]."
 
-A pit called pit one is part of the nim table. The stone count of it is 3. Understand "pit 1" as pit one.
+A pit called pit one is part of the nim table. The stone count of pit one is 3. Understand "pit 1" as pit one.
 
-A pit called pit two is part of the nim table. The stone count of it is 5. Understand "pit 2" as pit two.
+A pit called pit two is part of the nim table. The stone count of pit two is 5. Understand "pit 2" as pit two.
 
-A pit called pit three is part of the nim table. The stone count of it is 7. Understand "pit 3" as pit three.
+A pit called pit three is part of the nim table. The stone count of pit three is 7. Understand "pit 3" as pit three.
 
 Section - Playing Nim
 
@@ -345,7 +343,7 @@ To decide whether graphics are available: no.
 
 Section - Textual pictures
 
-Instead of examining a picture (called the picture examined): if graphics are available, say "[debug]Hmm... I probably should have shown you the picture. Sorry. [end debug]"; say "[if the picture examined is undescribed]This appears to be a picture of some sort. [otherwise][description of the picture examined] [end if]The caption is '[caption of the picture examined]'."
+Instead of examining a picture (called the picture examined): if graphics are available, say "[if the picture examined is undescribed]This appears to be a picture of some sort. [otherwise][description of the picture examined] [end if]The caption is '[caption of the picture examined]'."
 
 Section - Picture Delivery
 
